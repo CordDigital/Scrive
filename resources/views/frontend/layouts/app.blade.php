@@ -2,7 +2,6 @@
 <html lang="{{ app()->getLocale() }}" dir="{{ app()->getLocale() === 'ar' ? 'rtl' : 'ltr' }}">
 
 <head>
-    {{-- Preload أول صورة سلايدر لتحسين LCP --}}
     @if(isset($sliders) && $sliders->isNotEmpty())
         <link rel="preload" as="image" href="{{ Storage::url($sliders->first()->image) }}" fetchpriority="high">
     @endif
@@ -23,6 +22,18 @@
     <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','{{ $siteSettings->facebook_pixel }}');fbq('track','PageView');</script>
     <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id={{ $siteSettings->facebook_pixel }}&ev=PageView&noscript=1"/></noscript>
     @endif
+
+
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -62,10 +73,10 @@
     {{-- Critical CSS: يتحمل أول --}}
     <link rel="stylesheet" href="{{ asset('assets/css/swiper-bundle.min.css') }}" />
     @if(app()->getLocale() === 'ar')
-        <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
-        <link rel="stylesheet" href="{{ asset('assets/css/style-ar.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/style-ar.css') }}" />
     @else
-        <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
         <style>
             .blog-card-thumb { height: auto !important; }
             .menu { overflow-x: auto; white-space: nowrap; scrollbar-width: none; }
@@ -74,7 +85,7 @@
             .list-instagram .item:hover .icon { background-color: white; }
             .swiper-button-next, .swiper-button-prev { color: white; }
             .badge-new {
- 
+
     display: none !important;
 }
 .new-size{
@@ -145,7 +156,31 @@
     {{-- Scripts: swiper بدون defer عشان الـ swipers محتاجاه فوراً --}}
     <script src="{{ asset('assets/js/swiper-bundle.min.js') }}"></script>
     <script src="{{ asset('assets/js/phosphor-icons.js') }}" defer></script>
-    <script src="{{ asset('assets/js/main.js') }}" defer></script>
+
+
+
+
+
+
+
+ <!-- Back to Top -->
+    <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="{{ asset('mail/jqBootstrapValidation.min.js') }}"></script>
+    <script src="{{ asset('mail/contact.js') }}"></script>
+
+    <!-- Template Javascript -->
+    <script src="{{ asset('js/main.js') }}"></script>
+
+
 
     <script>
     (function(){

@@ -210,265 +210,336 @@
 
 @section('content')
 
-{{-- Breadcrumb --}}
-<div class="breadcrumb-block style-img">
-    <div class="breadcrumb-main bg-linear overflow-hidden">
-        <div class="container lg:pt-[134px] pt-24 pb-10 relative">
-            <div class="main-content w-full h-full flex flex-col items-center justify-center relative z-[1]">
-                <div class="heading2 text-center">{{ app()->getLocale() === 'ar' ? 'المتجر' : 'Shop' }}</div>
-                <div class="link flex items-center justify-center gap-1 caption1 mt-3">
-                    <a href="{{ route(app()->getLocale() === 'ar' ? 'home' : 'en.home') }}">{{ app()->getLocale() === 'ar' ? 'الرئيسية' : 'Homepage' }}</a>
-                    <i class="ph ph-caret-right text-sm text-secondary2"></i>
-                    <span class="text-secondary2">{{ app()->getLocale() === 'ar' ? 'المتجر' : 'Shop' }}</span>
+<!-- Shop Start -->
+    <div class="container-fluid pt-5">
+        <div class="row px-xl-5">
+            <!-- Shop Sidebar Start -->
+            <div class="col-lg-3 col-md-12">
+                <!-- Price Start -->
+                <div class="border-bottom mb-4 pb-4">
+                    <h5 class="font-weight-semi-bold mb-4">Filter by price</h5>
+                    <form>
+                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                            <input type="checkbox" class="custom-control-input" checked id="price-all">
+                            <label class="custom-control-label" for="price-all">All Price</label>
+                            <span class="badge border font-weight-normal">1000</span>
+                        </div>
+                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                            <input type="checkbox" class="custom-control-input" id="price-1">
+                            <label class="custom-control-label" for="price-1">$0 - $100</label>
+                            <span class="badge border font-weight-normal">150</span>
+                        </div>
+                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                            <input type="checkbox" class="custom-control-input" id="price-2">
+                            <label class="custom-control-label" for="price-2">$100 - $200</label>
+                            <span class="badge border font-weight-normal">295</span>
+                        </div>
+                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                            <input type="checkbox" class="custom-control-input" id="price-3">
+                            <label class="custom-control-label" for="price-3">$200 - $300</label>
+                            <span class="badge border font-weight-normal">246</span>
+                        </div>
+                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                            <input type="checkbox" class="custom-control-input" id="price-4">
+                            <label class="custom-control-label" for="price-4">$300 - $400</label>
+                            <span class="badge border font-weight-normal">145</span>
+                        </div>
+                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between">
+                            <input type="checkbox" class="custom-control-input" id="price-5">
+                            <label class="custom-control-label" for="price-5">$400 - $500</label>
+                            <span class="badge border font-weight-normal">168</span>
+                        </div>
+                    </form>
+                </div>
+                <!-- Price End -->
+
+                <!-- Color Start -->
+                <div class="border-bottom mb-4 pb-4">
+                    <h5 class="font-weight-semi-bold mb-4">Filter by color</h5>
+                    <form>
+                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                            <input type="checkbox" class="custom-control-input" checked id="color-all">
+                            <label class="custom-control-label" for="price-all">All Color</label>
+                            <span class="badge border font-weight-normal">1000</span>
+                        </div>
+                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                            <input type="checkbox" class="custom-control-input" id="color-1">
+                            <label class="custom-control-label" for="color-1">Black</label>
+                            <span class="badge border font-weight-normal">150</span>
+                        </div>
+                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                            <input type="checkbox" class="custom-control-input" id="color-2">
+                            <label class="custom-control-label" for="color-2">White</label>
+                            <span class="badge border font-weight-normal">295</span>
+                        </div>
+                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                            <input type="checkbox" class="custom-control-input" id="color-3">
+                            <label class="custom-control-label" for="color-3">Red</label>
+                            <span class="badge border font-weight-normal">246</span>
+                        </div>
+                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                            <input type="checkbox" class="custom-control-input" id="color-4">
+                            <label class="custom-control-label" for="color-4">Blue</label>
+                            <span class="badge border font-weight-normal">145</span>
+                        </div>
+                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between">
+                            <input type="checkbox" class="custom-control-input" id="color-5">
+                            <label class="custom-control-label" for="color-5">Green</label>
+                            <span class="badge border font-weight-normal">168</span>
+                        </div>
+                    </form>
+                </div>
+                <!-- Color End -->
+
+                <!-- Size Start -->
+                <div class="mb-5">
+                    <h5 class="font-weight-semi-bold mb-4">Filter by size</h5>
+                    <form>
+                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                            <input type="checkbox" class="custom-control-input" checked id="size-all">
+                            <label class="custom-control-label" for="size-all">All Size</label>
+                            <span class="badge border font-weight-normal">1000</span>
+                        </div>
+                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                            <input type="checkbox" class="custom-control-input" id="size-1">
+                            <label class="custom-control-label" for="size-1">XS</label>
+                            <span class="badge border font-weight-normal">150</span>
+                        </div>
+                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                            <input type="checkbox" class="custom-control-input" id="size-2">
+                            <label class="custom-control-label" for="size-2">S</label>
+                            <span class="badge border font-weight-normal">295</span>
+                        </div>
+                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                            <input type="checkbox" class="custom-control-input" id="size-3">
+                            <label class="custom-control-label" for="size-3">M</label>
+                            <span class="badge border font-weight-normal">246</span>
+                        </div>
+                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                            <input type="checkbox" class="custom-control-input" id="size-4">
+                            <label class="custom-control-label" for="size-4">L</label>
+                            <span class="badge border font-weight-normal">145</span>
+                        </div>
+                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between">
+                            <input type="checkbox" class="custom-control-input" id="size-5">
+                            <label class="custom-control-label" for="size-5">XL</label>
+                            <span class="badge border font-weight-normal">168</span>
+                        </div>
+                    </form>
+                </div>
+                <!-- Size End -->
+            </div>
+            <!-- Shop Sidebar End -->
+
+
+            <!-- Shop Product Start -->
+            <div class="col-lg-9 col-md-12">
+                <div class="row pb-3">
+                    <div class="col-12 pb-1">
+                        <div class="d-flex align-items-center justify-content-between mb-4">
+                            <form action="">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search by name">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text bg-transparent text-primary">
+                                            <i class="fa fa-search"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="dropdown ml-4">
+                                <button class="btn border dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
+                                            Sort by
+                                        </button>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="triggerId">
+                                    <a class="dropdown-item" href="#">Latest</a>
+                                    <a class="dropdown-item" href="#">Popularity</a>
+                                    <a class="dropdown-item" href="#">Best Rating</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
+                        <div class="card product-item border-0 mb-4">
+                            <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                                <img class="img-fluid w-100" src="img/product-1.jpg" alt="">
+                            </div>
+                            <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                                <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
+                                <div class="d-flex justify-content-center">
+                                    <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                                </div>
+                            </div>
+                            <div class="card-footer d-flex justify-content-between bg-light border">
+                                <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
+                                <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
+                        <div class="card product-item border-0 mb-4">
+                            <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                                <img class="img-fluid w-100" src="img/product-2.jpg" alt="">
+                            </div>
+                            <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                                <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
+                                <div class="d-flex justify-content-center">
+                                    <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                                </div>
+                            </div>
+                            <div class="card-footer d-flex justify-content-between bg-light border">
+                                <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
+                                <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
+                        <div class="card product-item border-0 mb-4">
+                            <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                                <img class="img-fluid w-100" src="img/product-3.jpg" alt="">
+                            </div>
+                            <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                                <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
+                                <div class="d-flex justify-content-center">
+                                    <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                                </div>
+                            </div>
+                            <div class="card-footer d-flex justify-content-between bg-light border">
+                                <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
+                                <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
+                        <div class="card product-item border-0 mb-4">
+                            <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                                <img class="img-fluid w-100" src="img/product-4.jpg" alt="">
+                            </div>
+                            <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                                <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
+                                <div class="d-flex justify-content-center">
+                                    <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                                </div>
+                            </div>
+                            <div class="card-footer d-flex justify-content-between bg-light border">
+                                <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
+                                <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
+                        <div class="card product-item border-0 mb-4">
+                            <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                                <img class="img-fluid w-100" src="img/product-5.jpg" alt="">
+                            </div>
+                            <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                                <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
+                                <div class="d-flex justify-content-center">
+                                    <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                                </div>
+                            </div>
+                            <div class="card-footer d-flex justify-content-between bg-light border">
+                                <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
+                                <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
+                        <div class="card product-item border-0 mb-4">
+                            <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                                <img class="img-fluid w-100" src="img/product-6.jpg" alt="">
+                            </div>
+                            <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                                <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
+                                <div class="d-flex justify-content-center">
+                                    <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                                </div>
+                            </div>
+                            <div class="card-footer d-flex justify-content-between bg-light border">
+                                <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
+                                <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
+                        <div class="card product-item border-0 mb-4">
+                            <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                                <img class="img-fluid w-100" src="img/product-7.jpg" alt="">
+                            </div>
+                            <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                                <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
+                                <div class="d-flex justify-content-center">
+                                    <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                                </div>
+                            </div>
+                            <div class="card-footer d-flex justify-content-between bg-light border">
+                                <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
+                                <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
+                        <div class="card product-item border-0 mb-4">
+                            <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                                <img class="img-fluid w-100" src="img/product-8.jpg" alt="">
+                            </div>
+                            <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                                <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
+                                <div class="d-flex justify-content-center">
+                                    <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                                </div>
+                            </div>
+                            <div class="card-footer d-flex justify-content-between bg-light border">
+                                <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
+                                <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
+                        <div class="card product-item border-0 mb-4">
+                            <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                                <img class="img-fluid w-100" src="img/product-1.jpg" alt="">
+                            </div>
+                            <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                                <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
+                                <div class="d-flex justify-content-center">
+                                    <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                                </div>
+                            </div>
+                            <div class="card-footer d-flex justify-content-between bg-light border">
+                                <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
+                                <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 pb-1">
+                        <nav aria-label="Page navigation">
+                          <ul class="pagination justify-content-center mb-3">
+                            <li class="page-item disabled">
+                              <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                                <span class="sr-only">Previous</span>
+                              </a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                              <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                                <span class="sr-only">Next</span>
+                              </a>
+                            </li>
+                          </ul>
+                        </nav>
+                    </div>
                 </div>
             </div>
+            <!-- Shop Product End -->
         </div>
     </div>
-</div>
-
-<div class="container">
-    <div class="shop-layout">
-
-        {{-- ── Sidebar (desktop: always visible, mobile: collapsible) ── --}}
-        <aside class="shop-sidebar" id="shopSidebar">
-
-            {{-- Categories --}}
-            <div class="sb-section">
-                <div class="sb-heading">{{ app()->getLocale() === 'ar' ? 'التصنيفات' : 'Categories' }}</div>
-                <a href="{{ route(app()->getLocale() === 'ar' ? 'shop' : 'en.shop') }}"
-                   class="sb-cat-item {{ !request('category') ? 'active' : '' }}">
-                    <span>{{ app()->getLocale() === 'ar' ? 'الكل' : 'All Products' }}</span>
-                    <span class="sb-cat-count">{{ $categories->sum('products_count') + $categories->sum(fn($c) => $c->children->sum('products_count')) }}</span>
-                </a>
-                @foreach($categories as $cat)
-                @php
-                    $isParentActive = request('category') == $cat->name_en;
-                    $isChildActive  = $cat->children->contains(fn($c) => request('category') == $c->name_en);
-                    $isOpen         = $isParentActive || $isChildActive;
-                    $parentTotal    = $cat->products_count + $cat->children->sum('products_count');
-                @endphp
-                @if($cat->children->count() > 0)
-                <div class="sb-cat-parent {{ $isOpen ? 'open' : '' }}" style="cursor:pointer; margin-bottom:4px;">
-                    <div class="sb-cat-item" style="font-weight:700; font-size:15px; display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid #eee;">
-                        <span>{{ app()->getLocale() === 'ar' ? $cat->name_ar : $cat->name_en }}</span>
-                        <span style="display:flex; align-items:center; gap:6px;">
-                            <span class="sb-cat-count" style="background:#f3f4f6; padding:2px 8px; border-radius:10px; font-size:12px;">{{ $parentTotal }}</span>
-                            <i class="ph ph-caret-down" style="font-size:12px; transition:transform 0.3s; {{ $isOpen ? 'transform:rotate(180deg)' : '' }}"></i>
-                        </span>
-                    </div>
-                    <div class="sb-cat-children" style="overflow:hidden; max-height:{{ $isOpen ? '500px' : '0' }}; transition:max-height 0.3s ease; background:#fafafa; border-radius:0 0 8px 8px;">
-                        <a href="{{ route(app()->getLocale() === 'ar' ? 'shop' : 'en.shop') }}?category={{ urlencode($cat->name_en) }}"
-                           class="sb-cat-item {{ $isParentActive ? 'active' : '' }}" style="padding:8px 20px; font-size:13px; color:#666;">
-                            <span>{{ app()->getLocale() === 'ar' ? 'عرض الكل' : 'View All' }}</span>
-                            <span class="sb-cat-count" style="font-size:11px; color:#999;">{{ $parentTotal }}</span>
-                        </a>
-                        @foreach($cat->children as $child)
-                        <a href="{{ route(app()->getLocale() === 'ar' ? 'shop' : 'en.shop') }}?category={{ urlencode($child->name_en) }}"
-                           class="sb-cat-item {{ request('category') == $child->name_en ? 'active' : '' }}" style="padding:8px 20px; font-size:13px; color:#666;">
-                            <span>{{ app()->getLocale() === 'ar' ? $child->name_ar : $child->name_en }}</span>
-                            <span class="sb-cat-count" style="font-size:11px; color:#999;">{{ $child->products_count }}</span>
-                        </a>
-                        @endforeach
-                    </div>
-                </div>
-                @else
-                <a href="{{ route(app()->getLocale() === 'ar' ? 'shop' : 'en.shop') }}?category={{ urlencode($cat->name_en) }}"
-                   class="sb-cat-item {{ $isParentActive ? 'active' : '' }}" style="font-weight:700; font-size:15px; padding:10px 0; border-bottom:1px solid #eee;">
-                    <span>{{ app()->getLocale() === 'ar' ? $cat->name_ar : $cat->name_en }}</span>
-                    <span class="sb-cat-count" style="background:#f3f4f6; padding:2px 8px; border-radius:10px; font-size:12px;">{{ $parentTotal }}</span>
-                </a>
-                @endif
-                @endforeach
-            </div>
-
-            {{-- Sizes --}}
-            <div class="sb-section">
-                <div class="sb-heading">{{ app()->getLocale() === 'ar' ? 'المقاسات' : 'Size' }}</div>
-                <div class="sb-sizes">
-                    @foreach(['XS','S','M','L','XL','2XL','Freesize'] as $size)
-                    <a href="{{ route(app()->getLocale() === 'ar' ? 'shop' : 'en.shop', array_merge(request()->except('size'), ['size' => $size])) }}"
-                       class="sb-size {{ $size === 'Freesize' ? 'freesize' : '' }} {{ request('size') == $size ? 'active' : '' }}">
-                        {{ $size }}
-                    </a>
-                    @endforeach
-                </div>
-            </div>
-
-            {{-- Price Range --}}
-            <div class="sb-section">
-                <div class="sb-heading">{{ app()->getLocale() === 'ar' ? 'نطاق السعر' : 'Price Range' }}</div>
-                <form method="GET" action="{{ route(app()->getLocale() === 'ar' ? 'shop' : 'en.shop') }}" id="priceForm">
-                    @foreach(request()->except(['min_price','max_price']) as $k => $v)
-                    <input type="hidden" name="{{ $k }}" value="{{ $v }}">
-                    @endforeach
-                    <div class="price-display">
-                        <span class="price-val-badge">EGP <span class="min-price-lbl">{{ request('min_price', 0) }}</span></span>
-                        <span style="color:#ccc;">—</span>
-                        <span class="price-val-badge">EGP <span class="max-price-lbl">{{ request('max_price', 10000) }}</span></span>
-                    </div>
-                    <div class="price-track">
-                        <div class="price-track-fill" id="priceRangeFill"></div>
-                        <input class="price-range-input" id="rangeMin" type="range" name="min_price" min="0" max="10000" value="{{ request('min_price', 0) }}" style="z-index:3;">
-                        <input class="price-range-input" id="rangeMax" type="range" name="max_price" min="0" max="10000" value="{{ request('max_price', 10000) }}" style="z-index:4;">
-                    </div>
-                    <button type="submit" class="price-apply-btn">
-                        {{ app()->getLocale() === 'ar' ? 'تطبيق' : 'Apply' }}
-                    </button>
-                </form>
-            </div>
-
-        </aside>
-
-        {{-- ── Products ── --}}
-        <div>
-            {{-- Filter Bar --}}
-            <div class="filter-bar">
-                <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
-                    <button type="button" class="filter-toggle-btn" id="filterToggleBtn">
-                        <i class="ph ph-funnel" style="font-size:16px;"></i>
-                        {{ app()->getLocale() === 'ar' ? 'فلتر' : 'Filter' }}
-                        <i class="ph ph-caret-down filter-arrow" style="font-size:12px;"></i>
-                    </button>
-                    <div class="filter-count">
-                        <span>{{ $products->total() }}</span>
-                        {{ app()->getLocale() === 'ar' ? ' منتج' : ' products found' }}
-                    </div>
-                    @if(request()->hasAny(['category', 'size', 'min_price', 'max_price', 'sale', 'sort', 'q']))
-                    <a href="{{ route(app()->getLocale() === 'ar' ? 'shop' : 'en.shop') }}"
-                       style="font-size:12px; font-weight:700; color:#ef4444; text-decoration:none; display:flex; align-items:center; gap:4px;">
-                        <i class="ph ph-x" style="font-size:14px;"></i>
-                        {{ app()->getLocale() === 'ar' ? 'مسح الفلاتر' : 'Clear' }}
-                    </a>
-                    @endif
-                </div>
-                <div class="filter-bar-right">
-                    <label class="sale-check-label">
-                        <input type="checkbox" id="filter-sale"
-                               {{ request('sale') ? 'checked' : '' }}
-                               onchange="window.location='{{ route(app()->getLocale() === 'ar' ? 'shop' : 'en.shop', array_merge(request()->all(), ['sale' => 1])) }}'">
-                        {{ app()->getLocale() === 'ar' ? 'العروض فقط' : 'On Sale Only' }}
-                    </label>
-                    <select class="sort-select"
-                            onchange="window.location='{{ route(app()->getLocale() === 'ar' ? 'shop' : 'en.shop') }}?sort='+this.value+'{{ request()->except('sort') ? '&'.http_build_query(request()->except('sort')) : '' }}'">
-                        <option value="">{{ app()->getLocale() === 'ar' ? 'الترتيب' : 'Default' }}</option>
-                        <option value="newArrivals"       {{ request('sort') == 'newArrivals'       ? 'selected' : '' }}>{{ app()->getLocale() === 'ar' ? 'وصل حديثاً'          : 'New Arrivals' }}</option>
-                        <option value="bestSelling"       {{ request('sort') == 'bestSelling'       ? 'selected' : '' }}>{{ app()->getLocale() === 'ar' ? 'الأكثر مبيعاً'       : 'Best Selling' }}</option>
-                        <option value="priceLowToHigh"   {{ request('sort') == 'priceLowToHigh'   ? 'selected' : '' }}>{{ app()->getLocale() === 'ar' ? 'السعر: الأقل أولاً'  : 'Price: Low to High' }}</option>
-                        <option value="priceHighToLow"   {{ request('sort') == 'priceHighToLow'   ? 'selected' : '' }}>{{ app()->getLocale() === 'ar' ? 'السعر: الأعلى أولاً' : 'Price: High to Low' }}</option>
-                        <option value="discountHighToLow" {{ request('sort') == 'discountHighToLow' ? 'selected' : '' }}>{{ app()->getLocale() === 'ar' ? 'أفضل خصم' : 'Best Discount' }}</option>
-                    </select>
-                </div>
-            </div>
-
-            {{-- Grid --}}
-            @if($products->count())
-            <div class="products-grid">
-                @foreach($products as $product)
-                @php
-                    $mainImg  = $product->image;
-                    $hoverImg = $product->images->first()->image ?? $mainImg;
-                @endphp
-                <div class="shop-card product-main" data-product-id="{{ $product->id }}"
-                     data-url="{{ route(app()->getLocale() === 'ar' ? 'shop.show' : 'en.shop.show', $product) }}">
-
-                    <div class="shop-card-thumb">
-
-                        {{-- Badge --}}
-                        @if($product->is_featured)
-                            <span class="shop-card-badge badge-new">{{ app()->getLocale() === 'ar' ? 'جديد' : 'New' }}</span>
-                        @elseif($product->old_price)
-                            <span class="shop-card-badge badge-sale">-{{ $product->discount_percent }}%</span>
-                        @endif
-
-                        {{-- Wishlist --}}
-                        @auth
-                            @php $wishlisted = auth()->user()->wishlist()->where('product_id', $product->id)->exists(); @endphp
-                            <div class="shop-card-wish wishlist-btn"
-                                 data-url="{{ route(app()->getLocale() === 'ar' ? 'wishlist.toggle' : 'en.wishlist.toggle', $product) }}">
-                                <i class="{{ $wishlisted ? 'ph-fill text-red-500' : 'ph text-secondary' }} ph-heart text-base"></i>
-                            </div>
-                        @else
-                            <a href="{{ route(app()->getLocale() === 'ar' ? 'login' : 'en.login') }}" class="shop-card-wish">
-                                <i class="ph ph-heart text-secondary text-base"></i>
-                            </a>
-                        @endauth
-
-                        {{-- Images --}}
-                        <img src="{{ asset('storage/'.$mainImg) }}"  alt="{{ $product->name }}" class="img-main">
-                        <img src="{{ asset('storage/'.$hoverImg) }}" alt="{{ $product->name }}" class="img-hover">
-
-                        {{-- Actions --}}
-                        <div class="shop-card-actions">
-                            <a href="{{ route(app()->getLocale() === 'ar' ? 'shop.show' : 'en.shop.show', $product) }}"
-                               class="action-btn action-view">
-                                <i class="ph ph-eye"></i>
-                                <span class="max-sm:hidden">{{ app()->getLocale() === 'ar' ? 'عرض' : 'View' }}</span>
-                            </a>
-                            <button type="button" class="action-btn action-cart add-cart-btn" data-product-id="{{ $product->id }}">
-                                <i class="ph ph-shopping-bag-open"></i>
-                                <span class="max-sm:hidden">{{ app()->getLocale() === 'ar' ? 'أضف' : 'Add' }}</span>
-                            </button>
-                        </div>
-
-                    </div>
-
-                    <div class="shop-card-body">
-                        <a href="{{ route(app()->getLocale() === 'ar' ? 'shop.show' : 'en.shop.show', $product) }}"
-                           class="shop-card-name">{{ $product->name }}</a>
-
-                        @if($product->images->count())
-                        <div class="shop-card-colors">
-                            @foreach($product->images->take(4) as $img)
-                                <img src="{{ asset('storage/'.$img->image) }}" class="shop-card-color-img"
-                                     title="{{ app()->getLocale() === 'ar' ? $img->color_ar : $img->color_en }}">
-                            @endforeach
-                        </div>
-                        @endif
-
-                        @if($product->price)
-                        <div class="shop-card-price-row">
-                            <span class="shop-card-price">EGP {{ number_format($product->price, 2) }}</span>
-                            @if($product->old_price)
-                                <span class="shop-card-old">EGP {{ number_format($product->old_price, 2) }}</span>
-                                <span class="shop-card-discount">-{{ $product->discount_percent }}%</span>
-                            @endif
-                        </div>
-                        @endif
-
-                        @if($product->stock > 0 && $product->stock <= 5)
-                            <div class="shop-card-stock low">
-                                <i class="ph ph-warning"></i>
-                                {{ app()->getLocale() === 'ar' ? 'باقي '.$product->stock.' فقط' : 'Only '.$product->stock.' left!' }}
-                            </div>
-                        @elseif($product->stock == 0)
-                            <div class="shop-card-stock">
-                                {{ app()->getLocale() === 'ar' ? 'نفذ المخزون' : 'Out of stock' }}
-                            </div>
-                        @endif
-                    </div>
-
-                </div>
-                @endforeach
-            </div>
-
-            <div class="shop-pagination">
-                {{ $products->links() }}
-            </div>
-
-            @else
-            <div class="shop-empty">
-                <i class="ph ph-package"></i>
-                <p>{{ app()->getLocale() === 'ar' ? 'لا توجد منتجات' : 'No products found' }}</p>
-                <a href="{{ route(app()->getLocale() === 'ar' ? 'shop' : 'en.shop') }}" class="button-main">
-                    {{ app()->getLocale() === 'ar' ? 'إزالة الفلاتر' : 'Clear Filters' }}
-                </a>
-            </div>
-            @endif
-
-        </div>
-    </div>
-</div>
-
+    <!-- Shop End -->
 @endsection
 
 @push('scripts')

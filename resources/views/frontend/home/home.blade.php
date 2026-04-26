@@ -1,399 +1,514 @@
 @extends('frontend.layouts.app')
 @section('content')
-
-<div class="slider-block style-one bg-linear xl:h-[860px] lg:h-[800px] md:h-[580px] sm:h-[500px] h-[350px] max-[420px]:h-[320px] w-full">
-    <div class="slider-main h-full w-full">
-        <div class="swiper swiper-slider h-full relative">
-            <div class="swiper-wrapper">
-                @foreach ($sliders as $slider)
-                    <div class="swiper-slide">
-                        <div class="slider-item h-full w-full relative">
-                            <div class="container w-full h-full flex items-center relative">
-                                <div class="text-content basis-1/2">
-                                    <div class="text-sub-display text-lg text-black">
-                                        {{ app()->getLocale() === 'ar' ? $slider->subtitle_ar : $slider->subtitle_en }}
-                                    </div>
-                                    <div class="text-display md:mt-5 mt-2 text-4xl md:text-6xl font-bold text-black">
-                                        {{ app()->getLocale() === 'ar' ? $slider->title_ar : $slider->title_en }}
-                                    </div>
-                                    <a href="{{ route(app()->getLocale() === 'ar' ? 'shop' : 'en.shop') }}"
-                                       class="button-main md:mt-8 mt-3 px-6 py-3 bg-white text-black rounded-full hover:bg-black hover:text-white transition" style="border: 1px solid;">
-                                        {{ __('Shop Now') }}
-                                    </a>
+<div id="header-carousel" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" style="height: 410px;">
+                            <img class="img-fluid" src="img/carousel-1.jpg" alt="Image">
+                            <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                                <div class="p-3" style="max-width: 700px;">
+                                    <h4 class="text-light text-uppercase font-weight-medium mb-3">10% Off Your First Order</h4>
+                                    <h3 class="display-4 text-white font-weight-semi-bold mb-4">Fashionable Dress</h3>
+                                    <a href="" class="btn btn-light py-2 px-3">Shop Now</a>
                                 </div>
-                                <div class="sub-img absolute sm:w-1/2 w-3/5 2xl:-right-[60px] -right-[16px] bottom-0">
-                                    @if($loop->first)
-                                        <img src="{{ Storage::url($slider->image) }}"
-                                             alt="{{ app()->getLocale() === 'ar' ? $slider->title_ar : $slider->title_en }}"
-                                             class="w-full h-auto object-contain"
-                                             fetchpriority="high"
-                                             loading="eager"
-                                             decoding="sync" />
-                                    @else
-                                        <img src="{{ Storage::url($slider->image) }}"
-                                             alt="{{ app()->getLocale() === 'ar' ? $slider->title_ar : $slider->title_en }}"
-                                             class="w-full h-auto object-contain"
-                                             loading="lazy"
-                                             decoding="async" />
-                                    @endif
+                            </div>
+                        </div>
+                        <div class="carousel-item" style="height: 410px;">
+                            <img class="img-fluid" src="img/carousel-2.jpg" alt="Image">
+                            <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                                <div class="p-3" style="max-width: 700px;">
+                                    <h4 class="text-light text-uppercase font-weight-medium mb-3">10% Off Your First Order</h4>
+                                    <h3 class="display-4 text-white font-weight-semi-bold mb-4">Reasonable Price</h3>
+                                    <a href="" class="btn btn-light py-2 px-3">Shop Now</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                @endforeach
-            </div>
-            <div class="swiper-pagination"></div>
-        </div>
-    </div>
-</div>
-
-<div class="what-new-block filter-product-block md:pt-20 pt-10">
-    <div class="container">
-        <div class="heading flex flex-col items-center text-center">
-            <div class="heading3">{{ __("What's new") }}</div>
-            <div class="menu-tab mt-6 flex justify-center">
-                <div class="menu inline-flex items-center gap-2 p-1 bg-surface rounded-full relative overflow-x-auto whitespace-nowrap max-w-full" style="-webkit-overflow-scrolling:touch; -ms-overflow-style:none; scrollbar-width:none;">
-                    <div class="indicator absolute top-1 bottom-1 bg-white rounded-full shadow-md duration-300"></div>
-                    @foreach ($categories as $category)
-                        <div class="tab-item relative text-secondary text-button-uppercase py-2 px-5 cursor-pointer duration-300 hover:text-black {{ $loop->first ? 'active' : '' }}"
-                            data-item="{{ $category->id }}">
-                            {{ app()->getLocale() === 'ar' ? $category->name_ar : $category->name_en }}
+                    <a class="carousel-control-prev" href="#header-carousel" data-slide="prev">
+                        <div class="btn btn-dark" style="width: 45px; height: 45px;">
+                            <span class="carousel-control-prev-icon mb-n2"></span>
                         </div>
-                    @endforeach
+                    </a>
+                    <a class="carousel-control-next" href="#header-carousel" data-slide="next">
+                        <div class="btn btn-dark" style="width: 45px; height: 45px;">
+                            <span class="carousel-control-next-icon mb-n2"></span>
+                        </div>
+                    </a>
+                </div>
+
+    <!-- Featured Start -->
+    <div class="container-fluid pt-5">
+        <div class="row px-xl-5 pb-3">
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
+                    <h1 class="fa fa-check text-primary m-0 mr-3"></h1>
+                    <h5 class="font-weight-semi-bold m-0">Quality Product</h5>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
+                    <h1 class="fa fa-shipping-fast text-primary m-0 mr-2"></h1>
+                    <h5 class="font-weight-semi-bold m-0">Free Shipping</h5>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
+                    <h1 class="fas fa-exchange-alt text-primary m-0 mr-3"></h1>
+                    <h5 class="font-weight-semi-bold m-0">14-Day Return</h5>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
+                    <h1 class="fa fa-phone-volume text-primary m-0 mr-3"></h1>
+                    <h5 class="font-weight-semi-bold m-0">24/7 Support</h5>
                 </div>
             </div>
         </div>
+    </div>
+    <!-- Featured End -->
 
-        <div class="list-product hide-product-sold relative md:mt-10 mt-6">
-            <div class="flex items-center gap-3">
-                <button class="whats-new-prev shrink-0 w-10 h-10 rounded-full border border-line flex items-center justify-center hover:bg-black hover:text-white transition-all">
-                    <i class="ph ph-caret-left"></i>
-                </button>
-                <div class="swiper swiper-whats-new overflow-hidden flex-1">
-                    <div class="swiper-wrapper">
-                        @foreach ($categories as $category)
-                            @foreach ($productsByCategory[$category->id] ?? [] as $product)
-                                <div class="swiper-slide product-slide" data-category="{{ $category->id }}">
-                                    @include('frontend.partials.product-card', [
-                                        'product'    => $product,
-                                        'categoryId' => $category->id,
-                                        'first'      => $loop->parent->first,
-                                    ])
-                                </div>
-                            @endforeach
-                        @endforeach
+
+    <!-- Categories Start -->
+    <div class="container-fluid pt-5">
+        <div class="row px-xl-5 pb-3">
+            <div class="col-lg-4 col-md-6 pb-1">
+                <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
+                    <p class="text-right">15 Products</p>
+                    <a href="" class="cat-img position-relative overflow-hidden mb-3">
+                        <img class="img-fluid" src="img/cat-1.jpg" alt="">
+                    </a>
+                    <h5 class="font-weight-semi-bold m-0">Men's dresses</h5>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 pb-1">
+                <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
+                    <p class="text-right">15 Products</p>
+                    <a href="" class="cat-img position-relative overflow-hidden mb-3">
+                        <img class="img-fluid" src="img/cat-2.jpg" alt="">
+                    </a>
+                    <h5 class="font-weight-semi-bold m-0">Women's dresses</h5>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 pb-1">
+                <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
+                    <p class="text-right">15 Products</p>
+                    <a href="" class="cat-img position-relative overflow-hidden mb-3">
+                        <img class="img-fluid" src="img/cat-3.jpg" alt="">
+                    </a>
+                    <h5 class="font-weight-semi-bold m-0">Baby's dresses</h5>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 pb-1">
+                <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
+                    <p class="text-right">15 Products</p>
+                    <a href="" class="cat-img position-relative overflow-hidden mb-3">
+                        <img class="img-fluid" src="img/cat-4.jpg" alt="">
+                    </a>
+                    <h5 class="font-weight-semi-bold m-0">Accerssories</h5>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 pb-1">
+                <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
+                    <p class="text-right">15 Products</p>
+                    <a href="" class="cat-img position-relative overflow-hidden mb-3">
+                        <img class="img-fluid" src="img/cat-5.jpg" alt="">
+                    </a>
+                    <h5 class="font-weight-semi-bold m-0">Bags</h5>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 pb-1">
+                <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
+                    <p class="text-right">15 Products</p>
+                    <a href="" class="cat-img position-relative overflow-hidden mb-3">
+                        <img class="img-fluid" src="img/cat-6.jpg" alt="">
+                    </a>
+                    <h5 class="font-weight-semi-bold m-0">Shoes</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Categories End -->
+
+
+    <!-- Offer Start -->
+    <div class="container-fluid offer pt-5">
+        <div class="row px-xl-5">
+            <div class="col-md-6 pb-4">
+                <div class="position-relative bg-secondary text-center text-md-right text-white mb-2 py-5 px-5">
+                    <img src="img/offer-1.png" alt="">
+                    <div class="position-relative" style="z-index: 1;">
+                        <h5 class="text-uppercase text-primary mb-3">20% off the all order</h5>
+                        <h1 class="mb-4 font-weight-semi-bold">Spring Collection</h1>
+                        <a href="" class="btn btn-outline-primary py-md-2 px-md-3">Shop Now</a>
                     </div>
                 </div>
-                <button class="whats-new-next shrink-0 w-10 h-10 rounded-full border border-line flex items-center justify-center hover:bg-black hover:text-white transition-all">
-                    <i class="ph ph-caret-right"></i>
-                </button>
             </div>
-        </div>
-    </div>
-</div>
-
-<div class="collection-block md:pt-20 pt-10">
-    <div class="container">
-        <div class="heading3 text-center">{{ __('Explore Collections') }}</div>
-    </div>
-    <div class="list-collection relative section-swiper-navigation md:mt-10 mt-6 sm:px-5 px-4">
-        <div class="swiper-button-prev lg:left-10 left-6" tabindex="0" role="button"></div>
-        <div class="swiper swiper-collection h-full relative">
-            <div class="swiper-wrapper">
-                @foreach ($categories as $category)
-                    @foreach ($category->children as $child)
-                        <div class="swiper-slide" role="group">
-                            <a href="{{ route(app()->getLocale() === 'ar' ? 'shop' : 'en.shop') }}?category={{ urlencode($child->name_en) }}"
-                                class="collection-item block relative rounded-2xl overflow-hidden cursor-pointer">
-                                <div class="bg-img">
-                                    @if($child->image)
-                                        <img src="{{ asset('storage/' . $child->image) }}"
-                                            alt="{{ app()->getLocale() === 'ar' ? $child->name_ar : $child->name_en }}"
-                                            class="w-full h-full object-cover"
-                                            loading="lazy"
-                                            decoding="async">
-                                    @else
-                                        <div class="w-full h-full" style="background:linear-gradient(135deg,#e5e7eb,#f9fafb);"></div>
-                                    @endif
-                                </div>
-                                <div class="collection-name heading5 text-center sm:bottom-8 bottom-4 lg:w-[200px] md:w-[160px] w-[100px] md:py-3 py-1.5 bg-white rounded-xl duration-500">
-                                    {{ app()->getLocale() === 'ar' ? $child->name_ar : $child->name_en }}
-                                </div>
-                            </a>
-                        </div>
-                    @endforeach
-                @endforeach
-            </div>
-        </div>
-        <div class="swiper-button-next lg:right-10 right-6" tabindex="0" role="button"></div>
-    </div>
-</div>
-
-@php
-    $bsPrices = $bestSellers->pluck('price');
-    $bsMin    = $bsPrices->min() ?? 0;
-    $bsMax    = $bsPrices->max() ?? 0;
-    $bsRange  = ($bsMax - $bsMin) > 0 ? ($bsMax - $bsMin) / 3 : 1;
-    $bsLowThr = $bsMin + $bsRange;
-    $bsMidThr = $bsMin + 2 * $bsRange;
-@endphp
-<div class="best-sellers-block filter-product-block md:pt-20 pt-10">
-    <div class="container">
-        <div class="heading flex flex-col items-center text-center">
-            <div class="heading3">{{ __('Best Sellers') }}</div>
-        </div>
-
-        <div class="filter-tabs flex items-center justify-center gap-3 flex-wrap md:mt-8 mt-5">
-            <button class="bs-filter-btn active text-button-uppercase px-6 py-2 rounded-full border border-black bg-black text-white duration-300" data-filter="all">
-                {{ __('All') }}
-            </button>
-            <button class="bs-filter-btn text-button-uppercase px-6 py-2 rounded-full border border-line duration-300 hover:bg-black hover:text-white hover:border-black" data-filter="low">
-                {{ __('Low Price') }}
-            </button>
-            <button class="bs-filter-btn text-button-uppercase px-6 py-2 rounded-full border border-line duration-300 hover:bg-black hover:text-white hover:border-black" data-filter="medium">
-                {{ __('Medium Price') }}
-            </button>
-
-        </div>
-
-        <div class="list-product relative md:mt-10 mt-6">
-            <div class="flex items-center gap-3">
-                <button class="bs-prev shrink-0 w-10 h-10 rounded-full border border-line flex items-center justify-center hover:bg-black hover:text-white transition-all">
-                    <i class="ph ph-caret-left"></i>
-                </button>
-                <div class="swiper swiper-best-sellers overflow-hidden flex-1">
-                    <div class="swiper-wrapper">
-                        @foreach ($bestSellers as $product)
-                            @php
-                                $priceRange = $product->price <= $bsLowThr ? 'low'
-                                    : ($product->price <= $bsMidThr ? 'medium' : 'high');
-                            @endphp
-                            <div class="swiper-slide bs-item" data-price-range="{{ $priceRange }}">
-                                @include('frontend.partials.product-card', [
-                                    'product'    => $product,
-                                    'categoryId' => null,
-                                    'first'      => true,
-                                    'priceRange' => $priceRange,
-                                ])
-                            </div>
-                        @endforeach
+            <div class="col-md-6 pb-4">
+                <div class="position-relative bg-secondary text-center text-md-left text-white mb-2 py-5 px-5">
+                    <img src="img/offer-2.png" alt="">
+                    <div class="position-relative" style="z-index: 1;">
+                        <h5 class="text-uppercase text-primary mb-3">20% off the all order</h5>
+                        <h1 class="mb-4 font-weight-semi-bold">Winter Collection</h1>
+                        <a href="" class="btn btn-outline-primary py-md-2 px-md-3">Shop Now</a>
                     </div>
                 </div>
-                <button class="bs-next shrink-0 w-10 h-10 rounded-full border border-line flex items-center justify-center hover:bg-black hover:text-white transition-all">
-                    <i class="ph ph-caret-right"></i>
-                </button>
             </div>
         </div>
     </div>
-</div>
+    <!-- Offer End -->
 
-@if($flashSale)
-<div class="container md:pt-20 pt-10">
-    <div class="flash-sale-block bg-surface flex items-center justify-end max-sm:justify-center relative overflow-hidden rounded-3xl w-full">
-        <div class="bg-img w-1/2 absolute left-0 lg:-top-28 sm:-top-14 max-sm:hidden" style="top: -5rem; transform: scale(0.7);">
-            <img src="{{ $flashSale->image ? asset('storage/' . $flashSale->image) : asset('assets/images/banneer - Copy.png') }}"
-                 alt="flash-sale"
-                 class="w-full h-full object-cover"
-                 loading="lazy"
-                 decoding="async">
+
+    <!-- Products Start -->
+    <div class="container-fluid pt-5">
+        <div class="text-center mb-4">
+            <h2 class="section-title px-5"><span class="px-2">Trandy Products</span></h2>
         </div>
-        <div class="text-content basis-1/2 flex flex-col items-center text-center px-8 lg:py-24 md:py-16 py-10" style="padding-bottom: 4rem;">
-            <div class="heading2">{{ app()->getLocale() === 'ar' ? $flashSale->title_ar : $flashSale->title_en }}</div>
-            <div class="body1 mt-3">{{ app()->getLocale() === 'ar' ? $flashSale->subtitle_ar : $flashSale->subtitle_en }}</div>
-            <div class="countdown-time flex items-center gap-5 max-sm:gap-[14px] lg:mt-9 md:mt-6 mt-4"
-                 data-ends="{{ $flashSale->ends_at->toIso8601String() }}">
-                <div class="item flex flex-col items-center">
-                    <div class="countdown-day time heading1">0</div>
-                    <div class="text-button-uppercase font-medium">{{ __('Days') }}</div>
-                </div>
-                <span class="heading4">:</span>
-                <div class="item flex flex-col items-center">
-                    <div class="countdown-hour time heading1">0</div>
-                    <div class="text-button-uppercase font-medium">{{ __('Hours') }}</div>
-                </div>
-                <span class="heading4">:</span>
-                <div class="item flex flex-col items-center">
-                    <div class="countdown-minute time heading1">0</div>
-                    <div class="text-button-uppercase font-medium">{{ __('Minutes') }}</div>
-                </div>
-                <span class="heading4">:</span>
-                <div class="item flex flex-col items-center">
-                    <div class="countdown-second time heading1">0</div>
-                    <div class="text-button-uppercase font-medium">{{ __('Seconds') }}</div>
-                </div>
-            </div>
-            <a href="{{ route(app()->getLocale() === 'ar' ? 'shop' : 'en.shop') }}" class="button-main lg:mt-9 md:mt-6 mt-4">{{ __('Get it now') }}</a>
-        </div>
-    </div>
-</div>
-@endif
-  <!--<div class="container mt-5">-->
-  <!--      <div class="row">-->
-  <!--          <div class="col-md-12">-->
-  <!--          @php $indexRoute = app()->getLocale() == 'en' ? 'en.zizi-world.index' : 'zizi-world.index'; @endphp-->
-
-  <!--              <a href="{{ route($indexRoute) }}">-->
-  <!--                  <img src="assets/images/banner-zizi.webp"-->
-  <!--                       alt="banner-sale"-->
-  <!--                       class="w-full h-full object-cover">-->
-                         
-  <!--              </a>-->
-                
-
-  <!--          </div>-->
-  <!--      </div>-->
-  <!--      </div>-->
-        
-        
-        
-        <div class="banner-block style-one grid gap-5 md:pt-20 pt-10">
-             @php $indexRoute = app()->getLocale() == 'en' ? 'en.zizi-world.index' : 'zizi-world.index'; @endphp
-    <a href="{{ route($indexRoute) }}"" class="banner-item relative block overflow-hidden duration-500">
-        <div class="banner-img">
-            <img src="assets/images/banner-zizi.webp"
-                 class="duration-1000 w-full h-full object-cover" alt="Best Sellers"
-                 loading="lazy" decoding="async" />
-        </div>
-        <div class="banner-content absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center">
-            <div class="heading2 text-white">{{ __('Zizi World') }}</div>
-          
-        </div>
-    </a>
-   
-</div>
-
-<div class="banner-block style-one grid sm:grid-cols-2 gap-5 md:pt-20 pt-10">
-    <a href="{{ route(app()->getLocale() === 'ar' ? 'shop' : 'en.shop') }}?sort=bestSelling" class="banner-item relative block overflow-hidden duration-500">
-        <div class="banner-img">
-            <img src="{{ asset('assets/images/best-sellers,.jpg') }}"
-                 class="duration-1000" alt="Best Sellers"
-                 loading="lazy" decoding="async" />
-        </div>
-        <div class="banner-content absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center">
-            <div class="heading2 text-white">{{ __('Best Sellers') }}</div>
-            <div class="text-button text-white relative inline-block pb-1 border-b-2 border-white duration-500 mt-2">{{ __('Shop Now') }}</div>
-        </div>
-    </a>
-    <a href="{{ route(app()->getLocale() === 'ar' ? 'shop' : 'en.shop') }}?sort=newArrivals" class="banner-item relative block overflow-hidden duration-500">
-        <div class="banner-img">
-            <img src="{{ asset('assets/images/new-arrivals.jpg') }}"
-                 class="duration-1000" alt="New Arrivals"
-                 loading="lazy" decoding="async" />
-        </div>
-        <div class="banner-content absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center">
-            <div class="heading2 text-white">{{ __('New Arrivals') }}</div>
-            <div class="text-button text-white relative inline-block pb-1 border-b-2 border-white duration-500 mt-2">{{ __('Shop Now') }}</div>
-        </div>
-    </a>
-</div>
-
-<div class="benefit-block md:pt-20 pt-10">
-    <div class="container">
-        <div class="list-benefit grid items-start lg:grid-cols-4 grid-cols-2 gap-[30px]">
-            @foreach ($benefits as $benefit)
-                <div class="benefit-item flex flex-col items-center justify-center">
-                    <i class="{{ $benefit->icon }} text-5xl"></i>
-                    <div class="heading6 text-center mt-5">{{ app()->getLocale() === 'ar' ? $benefit->title_ar : $benefit->title_en }}</div>
-                    <div class="caption1 text-secondary text-center mt-3">{{ app()->getLocale() === 'ar' ? $benefit->description_ar : $benefit->description_en }}</div>
-                </div>
-            @endforeach
-        </div>
-    </div>
-</div>
-
-      
-
-
-
-
-
-
-
-
-
-<div class="testimonial-block md:pt-20 md:pb-16 pt-10 pb-8 md:mt-20 mt-10 bg-surface">
-    <div class="container">
-        <div class="heading3 text-center">{{ __('What People Are Saying') }}</div>
-        <div class="list-testimonial pagination-mt40 md:mt-10 mt-6">
-            <div class="swiper swiper-list-testimonial h-full relative">
-                <div class="swiper-wrapper">
-                    @forelse($testimonials as $t)
-                        <div class="swiper-slide">
-                            <div class="testimonial-item style-one h-full">
-                                <div class="testimonial-main bg-white p-8 rounded-2xl h-full">
-                                    <div class="flex items-center gap-1">
-                                        @for($i = 1; $i <= 5; $i++)
-                                            <i class="ph{{ $i <= $t->rating ? '-fill' : '' }} ph-star text-yellow"></i>
-                                        @endfor
-                                    </div>
-                                    <div class="heading6 title mt-4">{{ app()->getLocale() === 'ar' ? $t->title_ar : $t->title_en }}</div>
-                                    <div class="desc mt-2">{!! app()->getLocale() === 'ar' ? $t->content_ar : $t->content_en !!}</div>
-                                    <div class="text-button name mt-4">{{ $t->name }}</div>
-                                    <div class="caption2 date text-secondary2 mt-1">{{ \Carbon\Carbon::parse($t->review_date)->format('F d, Y') }}</div>
-                                </div>
-                            </div>
+        <div class="row px-xl-5 pb-3">
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="card product-item border-0 mb-4">
+                    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                        <img class="img-fluid w-100" src="img/product-1.jpg" alt="">
+                    </div>
+                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                        <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
+                        <div class="d-flex justify-content-center">
+                            <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
                         </div>
-                    @empty
-                        <div class="swiper-slide">
-                            <div class="testimonial-item style-one h-full">
-                                <div class="testimonial-main bg-white p-8 rounded-2xl h-full">
-                                    <div class="flex items-center gap-1">
-                                        @for($i = 0; $i < 5; $i++)<i class="ph-fill ph-star text-yellow"></i>@endfor
-                                    </div>
-                                    <div class="heading6 title mt-4">{{ __('Excellent Service!') }}</div>
-                                    <div class="desc mt-2">"{{ __('Great products and amazing quality.') }}"</div>
-                                    <div class="text-button name mt-4">Customer</div>
-                                </div>
-                            </div>
-                        </div>
-                    @endforelse
+                    </div>
+                    <div class="card-footer d-flex justify-content-between bg-light border">
+                        <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
+                        <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+                    </div>
                 </div>
-                <div class="swiper-pagination"></div>
             </div>
-            <div class="flex items-center justify-center gap-4 mt-6 new-55">
-                <button class="testimonial-prev w-10 h-10 rounded-full border border-line flex items-center justify-center hover:bg-black hover:text-white transition-all">
-                    <i class="ph ph-caret-left"></i>
-                </button>
-                <button class="testimonial-next w-10 h-10 rounded-full border border-line flex items-center justify-center hover:bg-black hover:text-white transition-all">
-                    <i class="ph ph-caret-right"></i>
-                </button>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="card product-item border-0 mb-4">
+                    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                        <img class="img-fluid w-100" src="img/product-2.jpg" alt="">
+                    </div>
+                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                        <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
+                        <div class="d-flex justify-content-center">
+                            <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between bg-light border">
+                        <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
+                        <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="card product-item border-0 mb-4">
+                    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                        <img class="img-fluid w-100" src="img/product-3.jpg" alt="">
+                    </div>
+                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                        <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
+                        <div class="d-flex justify-content-center">
+                            <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between bg-light border">
+                        <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
+                        <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="card product-item border-0 mb-4">
+                    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                        <img class="img-fluid w-100" src="img/product-4.jpg" alt="">
+                    </div>
+                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                        <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
+                        <div class="d-flex justify-content-center">
+                            <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between bg-light border">
+                        <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
+                        <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="card product-item border-0 mb-4">
+                    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                        <img class="img-fluid w-100" src="img/product-5.jpg" alt="">
+                    </div>
+                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                        <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
+                        <div class="d-flex justify-content-center">
+                            <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between bg-light border">
+                        <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
+                        <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="card product-item border-0 mb-4">
+                    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                        <img class="img-fluid w-100" src="img/product-6.jpg" alt="">
+                    </div>
+                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                        <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
+                        <div class="d-flex justify-content-center">
+                            <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between bg-light border">
+                        <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
+                        <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="card product-item border-0 mb-4">
+                    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                        <img class="img-fluid w-100" src="img/product-7.jpg" alt="">
+                    </div>
+                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                        <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
+                        <div class="d-flex justify-content-center">
+                            <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between bg-light border">
+                        <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
+                        <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="card product-item border-0 mb-4">
+                    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                        <img class="img-fluid w-100" src="img/product-8.jpg" alt="">
+                    </div>
+                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                        <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
+                        <div class="d-flex justify-content-center">
+                            <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between bg-light border">
+                        <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
+                        <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
+    <!-- Products End -->
 
-<div class="instagram-block md:pt-20 pt-10">
-    <div class="container">
-        <div class="heading">
-            <div class="heading3 text-center">{{ __('ZIZI ABUSALLA On Instagram') }}</div>
-            <div class="text-center mt-3">{{ __('ZiziAbusalla') }}</div>
-        </div>
-        <div class="list-instagram md:mt-10 mt-6">
-            <div class="swiper swiper-list-instagram">
-                <div class="swiper-wrapper" style="    justify-content: space-between;">
-                    @foreach ($InstagramImages as $image)
-                        <div class="swiper-slide">
-                            <a href="{{ $image->url ?? 'https://www.instagram.com/' }}" target="_blank"
-                                class="item relative block sm:rounded-[32px] rounded-2xl overflow-hidden aspect-square">
-                                <img src="{{ asset('storage/' . $image->image) }}"
-                                     alt="Instagram"
-                                     class="h-full w-full object-cover duration-500 relative"
-                                     loading="lazy"
-                                     decoding="async" />
-                                <div class="icon sm:w-12 sm:h-12 w-8 h-8 bg-white hover:bg-black duration-500 flex items-center justify-center sm:rounded-2xl rounded-xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[1]">
-                                    <i class="fa-brands fa-instagram"></i>
-                                </div>
-                            </a>
-                        </div>
-                    @endforeach
+
+    <!-- Subscribe Start -->
+    <div class="container-fluid bg-secondary my-5">
+        <div class="row justify-content-md-center py-5 px-xl-5">
+            <div class="col-md-6 col-12 py-5">
+                <div class="text-center mb-2 pb-2">
+                    <h2 class="section-title px-5 mb-3"><span class="bg-secondary px-2">Stay Updated</span></h2>
+                    <p>Amet lorem at rebum amet dolores. Elitr lorem dolor sed amet diam labore at justo ipsum eirmod duo labore labore.</p>
                 </div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-pagination"></div>
+                <form action="">
+                    <div class="input-group">
+                        <input type="text" class="form-control border-white p-4" placeholder="Email Goes Here">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary px-4">Subscribe</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-</div>
+    <!-- Subscribe End -->
+
+
+    <!-- Products Start -->
+    <div class="container-fluid pt-5">
+        <div class="text-center mb-4">
+            <h2 class="section-title px-5"><span class="px-2">Just Arrived</span></h2>
+        </div>
+        <div class="row px-xl-5 pb-3">
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="card product-item border-0 mb-4">
+                    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                        <img class="img-fluid w-100" src="img/product-1.jpg" alt="">
+                    </div>
+                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                        <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
+                        <div class="d-flex justify-content-center">
+                            <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between bg-light border">
+                        <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
+                        <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="card product-item border-0 mb-4">
+                    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                        <img class="img-fluid w-100" src="img/product-2.jpg" alt="">
+                    </div>
+                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                        <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
+                        <div class="d-flex justify-content-center">
+                            <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between bg-light border">
+                        <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
+                        <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="card product-item border-0 mb-4">
+                    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                        <img class="img-fluid w-100" src="img/product-3.jpg" alt="">
+                    </div>
+                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                        <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
+                        <div class="d-flex justify-content-center">
+                            <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between bg-light border">
+                        <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
+                        <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="card product-item border-0 mb-4">
+                    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                        <img class="img-fluid w-100" src="img/product-4.jpg" alt="">
+                    </div>
+                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                        <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
+                        <div class="d-flex justify-content-center">
+                            <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between bg-light border">
+                        <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
+                        <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="card product-item border-0 mb-4">
+                    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                        <img class="img-fluid w-100" src="img/product-5.jpg" alt="">
+                    </div>
+                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                        <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
+                        <div class="d-flex justify-content-center">
+                            <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between bg-light border">
+                        <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
+                        <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="card product-item border-0 mb-4">
+                    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                        <img class="img-fluid w-100" src="img/product-6.jpg" alt="">
+                    </div>
+                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                        <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
+                        <div class="d-flex justify-content-center">
+                            <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between bg-light border">
+                        <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
+                        <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="card product-item border-0 mb-4">
+                    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                        <img class="img-fluid w-100" src="img/product-7.jpg" alt="">
+                    </div>
+                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                        <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
+                        <div class="d-flex justify-content-center">
+                            <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between bg-light border">
+                        <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
+                        <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="card product-item border-0 mb-4">
+                    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                        <img class="img-fluid w-100" src="img/product-8.jpg" alt="">
+                    </div>
+                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                        <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
+                        <div class="d-flex justify-content-center">
+                            <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between bg-light border">
+                        <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
+                        <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Products End -->
+
+
+    <!-- Vendor Start -->
+    <div class="container-fluid py-5">
+        <div class="row px-xl-5">
+            <div class="col">
+                <div class="owl-carousel vendor-carousel">
+                    <div class="vendor-item border p-4">
+                        <img src="img/vendor-1.jpg" alt="">
+                    </div>
+                    <div class="vendor-item border p-4">
+                        <img src="img/vendor-2.jpg" alt="">
+                    </div>
+                    <div class="vendor-item border p-4">
+                        <img src="img/vendor-3.jpg" alt="">
+                    </div>
+                    <div class="vendor-item border p-4">
+                        <img src="img/vendor-4.jpg" alt="">
+                    </div>
+                    <div class="vendor-item border p-4">
+                        <img src="img/vendor-5.jpg" alt="">
+                    </div>
+                    <div class="vendor-item border p-4">
+                        <img src="img/vendor-6.jpg" alt="">
+                    </div>
+                    <div class="vendor-item border p-4">
+                        <img src="img/vendor-7.jpg" alt="">
+                    </div>
+                    <div class="vendor-item border p-4">
+                        <img src="img/vendor-8.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Vendor End -->
+
+
 
 @endsection
 

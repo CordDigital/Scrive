@@ -253,255 +253,346 @@
 
 @section('content')
 
-{{-- Breadcrumb --}}
-<div class="breadcrumb-block style-shared">
-    <div class="breadcrumb-main bg-linear overflow-hidden">
-        <div class="container lg:pt-[134px] pt-24 pb-10 relative">
-            <div class="main-content w-full h-full flex flex-col items-center justify-center relative z-[1]">
-                <div class="heading2 text-center">{{ __('Product Details') }}</div>
-                <div class="link flex items-center justify-center gap-1 caption1 mt-3">
-                    <a href="{{ route('home') }}">{{ app()->getLocale() === 'ar' ? 'الرئيسية' : 'Home' }}</a>
-                    <i class="ph ph-caret-right text-sm text-secondary2"></i>
-                    <a href="{{ route(app()->getLocale() === 'ar' ? 'shop' : 'en.shop') }}">{{ app()->getLocale() === 'ar' ? 'المتجر' : 'Shop' }}</a>
-                    <i class="ph ph-caret-right text-sm text-secondary2"></i>
-                    <span class="text-secondary2">{{ $product->name }}</span>
-                </div>
+   <!-- Page Header Start -->
+    <div class="container-fluid bg-secondary mb-5">
+        <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
+            <h1 class="font-weight-semi-bold text-uppercase mb-3">Shop Detail</h1>
+            <div class="d-inline-flex">
+                <p class="m-0"><a href="">Home</a></p>
+                <p class="m-0 px-2">-</p>
+                <p class="m-0">Shop Detail</p>
             </div>
         </div>
     </div>
-</div>
+    <!-- Page Header End -->
 
-<div class="pd-wrap">
-    <div class="container">
-        <div class="pd-grid">
 
-            {{-- ── Gallery ── --}}
-            <div class="pd-gallery">
-                {{-- Zoom Preview Box (desktop only, appears beside image) --}}
-                <div style="position:relative;">
-                    <div class="pd-main-img" id="pd-main-img-wrap">
-                        @if($product->old_price)
-                        <div class="pd-badge-sale">-{{ $product->discount_percent }}%</div>
-                        @endif
-                        {{-- Lens circle --}}
-                        <div class="pd-zoom-lens" id="pd-zoom-lens"></div>
-                        <img id="main-product-img"
-                             src="{{ Storage::url($product->image) }}"
-                             alt="{{ $product->name }}">
+    <!-- Shop Detail Start -->
+    <div class="container-fluid py-5">
+        <div class="row px-xl-5">
+            <div class="col-lg-5 pb-5">
+                <div id="product-carousel" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner border">
+                        <div class="carousel-item active">
+                            <img class="w-100 h-100" src="img/product-1.jpg" alt="Image">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="w-100 h-100" src="img/product-2.jpg" alt="Image">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="w-100 h-100" src="img/product-3.jpg" alt="Image">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="w-100 h-100" src="img/product-4.jpg" alt="Image">
+                        </div>
                     </div>
-                    {{-- Zoom preview panel --}}
-                    <div class="pd-zoom-preview" id="pd-zoom-preview">
-                        <img id="pd-zoom-preview-img"
-                             src="{{ Storage::url($product->image) }}"
-                             alt="zoom">
-                    </div>
+                    <a class="carousel-control-prev" href="#product-carousel" data-slide="prev">
+                        <i class="fa fa-2x fa-angle-left text-dark"></i>
+                    </a>
+                    <a class="carousel-control-next" href="#product-carousel" data-slide="next">
+                        <i class="fa fa-2x fa-angle-right text-dark"></i>
+                    </a>
                 </div>
-
-                @if($product->images->count() > 0)
-                <div class="pd-thumbs">
-                    <div class="pd-thumb active"
-                         onclick="changeImg('{{ Storage::url($product->image) }}', this, '')"
-                         data-color="">
-                        <img src="{{ Storage::url($product->image) }}" alt="{{ $product->name }}">
-                    </div>
-                    @foreach($product->images as $img)
-                    <div class="pd-thumb"
-                         onclick="changeImg('{{ Storage::url($img->image) }}', this, '{{ addslashes($img->color) }}')"
-                         data-color="{{ $img->color }}">
-                        <img src="{{ Storage::url($img->image) }}" alt="{{ $img->color }}">
-                    </div>
-                    @endforeach
-                </div>
-                <div id="active-color-label" style="margin-top:8px; font-size:13px; font-weight:600; color:#555; min-height:18px;"></div>
-                @endif
             </div>
 
-            {{-- ── Info ── --}}
-            <div class="pd-info">
-
-                @if($product->category)
-                <div class="pd-cat">
-                    {{ app()->getLocale() === 'ar'
-                        ? ($product->category->name_ar ?? $product->category->name)
-                        : ($product->category->name_en ?? $product->category->name) }}
+            <div class="col-lg-7 pb-5">
+                <h3 class="font-weight-semi-bold">Colorful Stylish Shirt</h3>
+                <div class="d-flex mb-3">
+                    <div class="text-primary mr-2">
+                        <small class="fas fa-star"></small>
+                        <small class="fas fa-star"></small>
+                        <small class="fas fa-star"></small>
+                        <small class="fas fa-star-half-alt"></small>
+                        <small class="far fa-star"></small>
+                    </div>
+                    <small class="pt-1">(50 Reviews)</small>
                 </div>
-                @endif
-
-                <h1 class="pd-title">{{ $product->name }}</h1>
-
-                <div class="pd-price-row">
-    @if($product->price)
-        <div class="pd-price">EGP{{ number_format($product->price, 2) }}</div>
-        @if($product->old_price)
-            <div class="pd-old-price">EGP{{ number_format($product->old_price, 2) }}</div>
-            <div class="pd-discount-badge">
-                {{ app()->getLocale() === 'ar' ? 'خصم' : 'Save' }} {{ $product->discount_percent }}%
-            </div>
-        @endif
-    @else
-        <div class="pd-price" style="font-size:24px;">
-            {{ app()->getLocale() === 'ar' ? 'السعر حسب الطلب' : 'Price on Request' }}
-        </div>
-    @endif
-</div>
-
-                <div class="pd-divider"></div>
-
-                @if($product->description)
-                <div class="pd-desc">{!! $product->description !!}</div>
-                @endif
-
-                @php
-                    $video = app()->getLocale() === 'ar' ? $product->video_ar : $product->video_en;
-                    if (!$video) $video = $product->video_en ?: $product->video_ar;
-                @endphp
-                @if($video)
-                <div class="pd-video">
-                    <iframe src="{{ $video }}" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
+                <h3 class="font-weight-semi-bold mb-4">$150.00</h3>
+                <p class="mb-4">Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam stet sit clita ea. Sanc invidunt ipsum et, labore clita lorem magna lorem ut. Erat lorem duo dolor no sea nonumy. Accus labore stet, est lorem sit diam sea et justo, amet at lorem et eirmod ipsum diam et rebum kasd rebum.</p>
+                <div class="d-flex mb-3">
+                    <p class="text-dark font-weight-medium mb-0 mr-3">Sizes:</p>
+                    <form>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" class="custom-control-input" id="size-1" name="size">
+                            <label class="custom-control-label" for="size-1">XS</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" class="custom-control-input" id="size-2" name="size">
+                            <label class="custom-control-label" for="size-2">S</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" class="custom-control-input" id="size-3" name="size">
+                            <label class="custom-control-label" for="size-3">M</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" class="custom-control-input" id="size-4" name="size">
+                            <label class="custom-control-label" for="size-4">L</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" class="custom-control-input" id="size-5" name="size">
+                            <label class="custom-control-label" for="size-5">XL</label>
+                        </div>
+                    </form>
                 </div>
-                @endif
-
-                <div class="pd-divider"></div>
-
-                <form id="add-to-cart-form">
-                    @csrf
-                    <input type="hidden" name="product_id" value="{{ $product->id }}">
-
-                    {{-- Sizes --}}
-                    @php
-                        $sizes = $product->sizes;
-                        if (is_string($sizes)) $sizes = json_decode($sizes, true) ?? [];
-                        if (!is_array($sizes)) $sizes = [];
-                    @endphp
-                    @if(count($sizes) > 0)
-                    <div style="margin-bottom:20px;">
-                        <div class="pd-label">{{ app()->getLocale() === 'ar' ? 'المقاس' : 'Select Size' }}</div>
-                        <div class="pd-sizes">
-                            @foreach($sizes as $size)
-                            <label class="pd-size-label">
-                                <input type="radio" name="size" value="{{ $size }}">
-                                <div class="pd-size-btn">{{ $size }}</div>
-                            </label>
-                            @endforeach
+                <div class="d-flex mb-4">
+                    <p class="text-dark font-weight-medium mb-0 mr-3">Colors:</p>
+                    <form>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" class="custom-control-input" id="color-1" name="color">
+                            <label class="custom-control-label" for="color-1">Black</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" class="custom-control-input" id="color-2" name="color">
+                            <label class="custom-control-label" for="color-2">White</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" class="custom-control-input" id="color-3" name="color">
+                            <label class="custom-control-label" for="color-3">Red</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" class="custom-control-input" id="color-4" name="color">
+                            <label class="custom-control-label" for="color-4">Blue</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" class="custom-control-input" id="color-5" name="color">
+                            <label class="custom-control-label" for="color-5">Green</label>
+                        </div>
+                    </form>
+                </div>
+                <div class="d-flex align-items-center mb-4 pt-2">
+                    <div class="input-group quantity mr-3" style="width: 130px;">
+                        <div class="input-group-btn">
+                            <button class="btn btn-primary btn-minus" >
+                            <i class="fa fa-minus"></i>
+                            </button>
+                        </div>
+                        <input type="text" class="form-control bg-secondary text-center" value="1">
+                        <div class="input-group-btn">
+                            <button class="btn btn-primary btn-plus">
+                                <i class="fa fa-plus"></i>
+                            </button>
                         </div>
                     </div>
-                    @endif
-
-                    {{-- Colors --}}
-                    @php
-                        $colors = $product->colors;
-                        if (is_string($colors)) $colors = json_decode($colors, true) ?? [];
-                        if (!is_array($colors)) $colors = [];
-                    @endphp
-                    @if(count($colors) > 0)
-                    <div style="margin-bottom:20px;">
-                        <div class="pd-label">{{ app()->getLocale() === 'ar' ? 'اللون' : 'Select Color' }}</div>
-                        <div class="pd-colors">
-                            @foreach($colors as $color)
-                            <label class="pd-color-label">
-                                <input type="radio" name="color" value="{{ $color }}">
-                                <div class="pd-color-btn">{{ $color }}</div>
-                            </label>
-                            @endforeach
-                        </div>
-                    </div>
-                    @endif
-
-                    {{-- Qty + Add to Cart --}}
-                    <div class="pd-actions">
-                        <div class="pd-qty">
-                            <button type="button" class="pd-qty-btn" onclick="changeQty(-1)">−</button>
-                            <input type="number" name="quantity" id="qty-input"
-                                   value="1" min="1" max="{{ $product->stock }}"
-                                   class="pd-qty-input">
-                            <button type="button" class="pd-qty-btn" onclick="changeQty(1)">+</button>
-                        </div>
-
-                        <button type="button" id="add-to-cart-btn" class="pd-add-btn">
-                            <i class="ph ph-shopping-bag-open" style="font-size:18px;"></i>
-                            <span>{{ app()->getLocale() === 'ar' ? 'أضف للسلة' : 'Add to Cart' }}</span>
-                        </button>
-
-                        <a href="{{ route(app()->getLocale() === 'ar' ? 'cart' : 'en.cart') }}" class="pd-add-btn pd-continue-btn">
-                            <i class="ph ph-shopping-cart" style="font-size:18px;"></i>
-                            <span>{{ app()->getLocale() === 'ar' ? 'متابعة التسوق' : 'Continue Shopping' }}</span>
+                    <button class="btn btn-primary px-3"><i class="fa fa-shopping-cart mr-1"></i> Add To Cart</button>
+                </div>
+                <div class="d-flex pt-2">
+                    <p class="text-dark font-weight-medium mb-0 mr-2">Share on:</p>
+                    <div class="d-inline-flex">
+                        <a class="text-dark px-2" href="">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a class="text-dark px-2" href="">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a class="text-dark px-2" href="">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a class="text-dark px-2" href="">
+                            <i class="fab fa-pinterest"></i>
                         </a>
                     </div>
-
-                    {{-- Stock --}}
-                    <div class="pd-stock">
-                        @if($product->stock > 0)
-                            <span class="pd-stock-dot in"></span>
-                            {{ app()->getLocale() === 'ar' ? "متوفر ({$product->stock} قطعة)" : "In Stock — {$product->stock} left" }}
-                        @else
-                            <span class="pd-stock-dot out"></span>
-                            {{ app()->getLocale() === 'ar' ? 'غير متوفر' : 'Out of Stock' }}
-                        @endif
-                    </div>
-                </form>
-
-                {{-- Trust Badges --}}
-                <div class="pd-trust">
-                    <div class="pd-trust-item">
-                        <i class="ph ph-truck"></i>
-                        {{ app()->getLocale() === 'ar' ? 'شحن سريع' : 'Fast Shipping' }}
-                    </div>
-                    <div class="pd-trust-item">
-                        <i class="ph ph-shield-check"></i>
-                        {{ app()->getLocale() === 'ar' ? 'دفع آمن' : 'Secure Payment' }}
-                    </div>
-                    <div class="pd-trust-item">
-                        <i class="ph ph-arrow-counter-clockwise"></i>
-                        {{ app()->getLocale() === 'ar' ? 'إرجاع مجاني' : 'Free Returns' }}
-                    </div>
                 </div>
-
             </div>
         </div>
-
-        {{-- ── Tabs ── --}}
-        <div class="pd-tabs-wrap">
-            <div class="pd-tabs-nav">
-                <button class="pd-tab-btn active" onclick="switchTab('desc', this)">
-                    {{ app()->getLocale() === 'ar' ? 'الوصف' : 'Description' }}
-                </button>
-                @if($product->additional_info ?? false)
-                <button class="pd-tab-btn" onclick="switchTab('info', this)">
-                    {{ app()->getLocale() === 'ar' ? 'معلومات إضافية' : 'Additional Info' }}
-                </button>
-                @endif
-            </div>
-
-            <div id="tab-desc" class="pd-tab-panel active">
-                <div class="pd-tab-content">
-                    {!! $product->description !!}
+        <div class="row px-xl-5">
+            <div class="col">
+                <div class="nav nav-tabs justify-content-center border-secondary mb-4">
+                    <a class="nav-item nav-link active" data-toggle="tab" href="#tab-pane-1">Description</a>
+                    <a class="nav-item nav-link" data-toggle="tab" href="#tab-pane-2">Information</a>
+                    <a class="nav-item nav-link" data-toggle="tab" href="#tab-pane-3">Reviews (0)</a>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="tab-pane-1">
+                        <h4 class="mb-3">Product Description</h4>
+                        <p>Eos no lorem eirmod diam diam, eos elitr et gubergren diam sea. Consetetur vero aliquyam invidunt duo dolores et duo sit. Vero diam ea vero et dolore rebum, dolor rebum eirmod consetetur invidunt sed sed et, lorem duo et eos elitr, sadipscing kasd ipsum rebum diam. Dolore diam stet rebum sed tempor kasd eirmod. Takimata kasd ipsum accusam sadipscing, eos dolores sit no ut diam consetetur duo justo est, sit sanctus diam tempor aliquyam eirmod nonumy rebum dolor accusam, ipsum kasd eos consetetur at sit rebum, diam kasd invidunt tempor lorem, ipsum lorem elitr sanctus eirmod takimata dolor ea invidunt.</p>
+                        <p>Dolore magna est eirmod sanctus dolor, amet diam et eirmod et ipsum. Amet dolore tempor consetetur sed lorem dolor sit lorem tempor. Gubergren amet amet labore sadipscing clita clita diam clita. Sea amet et sed ipsum lorem elitr et, amet et labore voluptua sit rebum. Ea erat sed et diam takimata sed justo. Magna takimata justo et amet magna et.</p>
+                    </div>
+                    <div class="tab-pane fade" id="tab-pane-2">
+                        <h4 class="mb-3">Additional Information</h4>
+                        <p>Eos no lorem eirmod diam diam, eos elitr et gubergren diam sea. Consetetur vero aliquyam invidunt duo dolores et duo sit. Vero diam ea vero et dolore rebum, dolor rebum eirmod consetetur invidunt sed sed et, lorem duo et eos elitr, sadipscing kasd ipsum rebum diam. Dolore diam stet rebum sed tempor kasd eirmod. Takimata kasd ipsum accusam sadipscing, eos dolores sit no ut diam consetetur duo justo est, sit sanctus diam tempor aliquyam eirmod nonumy rebum dolor accusam, ipsum kasd eos consetetur at sit rebum, diam kasd invidunt tempor lorem, ipsum lorem elitr sanctus eirmod takimata dolor ea invidunt.</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item px-0">
+                                        Sit erat duo lorem duo ea consetetur, et eirmod takimata.
+                                    </li>
+                                    <li class="list-group-item px-0">
+                                        Amet kasd gubergren sit sanctus et lorem eos sadipscing at.
+                                    </li>
+                                    <li class="list-group-item px-0">
+                                        Duo amet accusam eirmod nonumy stet et et stet eirmod.
+                                    </li>
+                                    <li class="list-group-item px-0">
+                                        Takimata ea clita labore amet ipsum erat justo voluptua. Nonumy.
+                                    </li>
+                                  </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item px-0">
+                                        Sit erat duo lorem duo ea consetetur, et eirmod takimata.
+                                    </li>
+                                    <li class="list-group-item px-0">
+                                        Amet kasd gubergren sit sanctus et lorem eos sadipscing at.
+                                    </li>
+                                    <li class="list-group-item px-0">
+                                        Duo amet accusam eirmod nonumy stet et et stet eirmod.
+                                    </li>
+                                    <li class="list-group-item px-0">
+                                        Takimata ea clita labore amet ipsum erat justo voluptua. Nonumy.
+                                    </li>
+                                  </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="tab-pane-3">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4 class="mb-4">1 review for "Colorful Stylish Shirt"</h4>
+                                <div class="media mb-4">
+                                    <img src="img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
+                                    <div class="media-body">
+                                        <h6>John Doe<small> - <i>01 Jan 2045</i></small></h6>
+                                        <div class="text-primary mb-2">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                        <p>Diam amet duo labore stet elitr ea clita ipsum, tempor labore accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h4 class="mb-4">Leave a review</h4>
+                                <small>Your email address will not be published. Required fields are marked *</small>
+                                <div class="d-flex my-3">
+                                    <p class="mb-0 mr-2">Your Rating * :</p>
+                                    <div class="text-primary">
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                </div>
+                                <form>
+                                    <div class="form-group">
+                                        <label for="message">Your Review *</label>
+                                        <textarea id="message" cols="30" rows="5" class="form-control"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name">Your Name *</label>
+                                        <input type="text" class="form-control" id="name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Your Email *</label>
+                                        <input type="email" class="form-control" id="email">
+                                    </div>
+                                    <div class="form-group mb-0">
+                                        <input type="submit" value="Leave Your Review" class="btn btn-primary px-3">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            @if($product->additional_info ?? false)
-            <div id="tab-info" class="pd-tab-panel">
-                <div class="pd-tab-content">
-                    {!! $product->additional_info !!}
-                </div>
-            </div>
-            @endif
         </div>
+    </div>
+    <!-- Shop Detail End -->
 
-    </div>
-</div>
 
-{{-- ── Lightbox ── --}}
-<div id="pd-lightbox">
-    <button class="pd-lb-close" id="pd-lb-close" title="Close">✕</button>
-    <div class="pd-lb-inner" id="pd-lb-inner">
-        <img id="pd-lb-img" src="" alt="zoom" draggable="false">
+    <!-- Products Start -->
+    <div class="container-fluid py-5">
+        <div class="text-center mb-4">
+            <h2 class="section-title px-5"><span class="px-2">You May Also Like</span></h2>
+        </div>
+        <div class="row px-xl-5">
+            <div class="col">
+                <div class="owl-carousel related-carousel">
+                    <div class="card product-item border-0">
+                        <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                            <img class="img-fluid w-100" src="img/product-1.jpg" alt="">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                            <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
+                            <div class="d-flex justify-content-center">
+                                <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                            </div>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between bg-light border">
+                            <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
+                            <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+                        </div>
+                    </div>
+                    <div class="card product-item border-0">
+                        <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                            <img class="img-fluid w-100" src="img/product-2.jpg" alt="">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                            <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
+                            <div class="d-flex justify-content-center">
+                                <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                            </div>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between bg-light border">
+                            <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
+                            <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+                        </div>
+                    </div>
+                    <div class="card product-item border-0">
+                        <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                            <img class="img-fluid w-100" src="img/product-3.jpg" alt="">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                            <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
+                            <div class="d-flex justify-content-center">
+                                <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                            </div>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between bg-light border">
+                            <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
+                            <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+                        </div>
+                    </div>
+                    <div class="card product-item border-0">
+                        <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                            <img class="img-fluid w-100" src="img/product-4.jpg" alt="">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                            <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
+                            <div class="d-flex justify-content-center">
+                                <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                            </div>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between bg-light border">
+                            <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
+                            <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+                        </div>
+                    </div>
+                    <div class="card product-item border-0">
+                        <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                            <img class="img-fluid w-100" src="img/product-5.jpg" alt="">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                            <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
+                            <div class="d-flex justify-content-center">
+                                <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                            </div>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between bg-light border">
+                            <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
+                            <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="pd-lb-hint">
-        {{ app()->getLocale() === 'ar' ? 'انقر للتكبير • اسحب للتحريك • ESC للإغلاق' : 'Click to zoom • Drag to pan • ESC to close' }}
-    </div>
-</div>
+    <!-- Products End -->
+
 
 @endsection
 

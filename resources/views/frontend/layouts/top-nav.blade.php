@@ -1,48 +1,63 @@
-<div id="top-nav" class="top-nav style-one bg-black md:h-[44px] h-[30px]">
-    <div class="container mx-auto h-full">
-        <div class="top-nav-main flex justify-between max-md:justify-center h-full">
-            <div class="left-content flex items-center gap-5 max-md:hidden">
-
-                {{-- Language Switcher --}}
-                <div class="choose-type choose-language flex items-center gap-1.5">
-                    <div class="select relative">
-                        <p class="selected caption2 text-white">
-                            {{ app()->getLocale() === 'ar' ? 'العربية' : 'English' }}
-                        </p>
-                        <ul class="list-option bg-white">
-                            <li class="caption2 {{ app()->getLocale() === 'ar' ? 'active' : '' }}"
-                                onclick="window.location='{{ route('switch.lang', 'ar') }}'">
-                                العربية
-                            </li>
-                            <li class="caption2 {{ app()->getLocale() === 'en' ? 'active' : '' }}"
-                                onclick="window.location='{{ route('switch.lang', 'en') }}'">
-                                English
-                            </li>
-                        </ul>
-                    </div>
-                    <i class="ph ph-caret-down text-xs text-white"></i>
+    <!-- Topbar Start -->
+    <div class="container-fluid">
+        <div class="row bg-secondary py-2 px-xl-5">
+            <div class="col-lg-6 d-none d-lg-block">
+                <div class="d-inline-flex align-items-center">
+                    <a class="text-dark" href="">FAQs</a>
+                    <span class="text-muted px-2">|</span>
+                    <a class="text-dark" href="">Help</a>
+                    <span class="text-muted px-2">|</span>
+                    <a class="text-dark" href="">Support</a>
                 </div>
-
-              
-
             </div>
-
-            {{-- Center Text --}}
-            @if($announcement)
-            <div class="text-center text-button-uppercase text-white flex items-center">
-                {{ app()->getLocale() === 'ar' ? $announcement->text_ar : $announcement->text_en }}
+            <div class="col-lg-6 text-center text-lg-right">
+                <div class="d-inline-flex align-items-center">
+                    <a class="text-dark px-2" href="">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a class="text-dark px-2" href="">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a class="text-dark px-2" href="">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="text-dark px-2" href="">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a class="text-dark pl-2" href="">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
             </div>
-            @endif
-
-            {{-- Social Links from DB --}}
-            <div class="right-content flex items-center gap-5 max-md:hidden">
-                @foreach($topNavSocials ?? [] as $social)
-                <a href="{{ $social->url }}" target="_blank" rel="noopener">
-                    <i class="{{ $social->icon }} text-white"></i>
+        </div>
+        <div class="row align-items-center py-3 px-xl-5">
+            <div class="col-lg-3 d-none d-lg-block">
+                <a href="" class="text-decoration-none">
+                    <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">E</span>Shopper</h1>
                 </a>
-                @endforeach
             </div>
-
+            <div class="col-lg-6 col-6 text-left">
+                <form action="">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search for products">
+                        <div class="input-group-append">
+                            <span class="input-group-text bg-transparent text-primary">
+                                <i class="fa fa-search"></i>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-3 col-6 text-right">
+                <a href="" class="btn border">
+                    <i class="fas fa-heart text-primary"></i>
+                    <span class="badge">0</span>
+                </a>
+                <a href="" class="btn border">
+                    <i class="fas fa-shopping-cart text-primary"></i>
+                    <span class="badge">0</span>
+                </a>
+            </div>
         </div>
     </div>
-</div>
+    <!-- Topbar End -->
