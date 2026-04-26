@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 
 class Product extends Model
 {
-    use SoftDeletes;
+    use \Illuminate\Database\Eloquent\Factories\HasFactory, SoftDeletes;
 
     protected $fillable = [
         'category_id',

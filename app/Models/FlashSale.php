@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class FlashSale extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
         'title_ar', 'title_en', 'subtitle_ar', 'subtitle_en', 'image',
         'discount_percent', 'min_amount', 'ends_at', 'is_active',

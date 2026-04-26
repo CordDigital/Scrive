@@ -2,96 +2,71 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Product;
 use App\Models\User;
-use Carbon\Carbon;
+use Illuminate\Database\Seeder;
 
 class OrderSeeder extends Seeder
 {
+    /**
+     * Seed orders with order items linked to real products.
+     */
     public function run(): void
     {
-        $products = Product::all();
-        $users    = User::where('role', 'user')->get();
+        $users    = User::where('role', 'user')->pluck('id')->toArray();
+        $products = Product::where('is_active', true)->get();
 
-        $firstNames = ['Ahmed', 'Mohamed', 'Sara', 'Nour', 'Youssef', 'Laila', 'Khaled', 'Rana', 'Omar', 'Hana'];
-        $lastNames  = ['Hassan', 'Ali', 'Ibrahim', 'Mostafa', 'Mahmoud', 'Saleh', 'Farouk', 'Nasser', 'Kamal', 'Zaki'];
-        $cities     = ['Cairo', 'Alexandria', 'Giza', 'Mansoura', 'Tanta', 'Luxor', 'Aswan', 'Suez', 'Ismailia', 'Hurghada'];
-        $streets    = ['Nile St', 'Tahrir Sq', 'Pyramids Rd', 'Hassan St', 'El Nasr Ave'];
-        $methods    = ['cash', 'credit_card', 'paypal'];
+        if (empty($users) || $products->isEmpty()) {
+            return;
+        }
 
-        for ($i = 1; $i <= 15; $i++) {
-            $firstName = $firstNames[array_rand($firstNames)];
-            $lastName  = $lastNames[array_rand($lastNames)];
-            $method    = $methods[array_rand($methods)];
-            $user      = $users->isNotEmpty() ? $users->random() : null;
-
-            // Pick 1–3 random products
-            $pickedProducts = $products->isNotEmpty()
-                ? $products->random(min(rand(1, 3), $products->count()))
-                : collect();
+        // Create 25 orders
+        for ($i = 0; $i < 25; $i++) {
+            $itemCount  = fake()->numberBetween(1, 4);
+            $orderItems = $products->random(min($itemCount, $products->count()));
 
             $subtotal = 0;
             $items    = [];
 
-            foreach ($pickedProducts as $product) {
-                $qty   = rand(1, 4);
-                $price = (float) $product->price;
-                $line  = round($price * $qty, 2);
-                $subtotal += $line;
+            foreach ($orderItems as $product) {
+                $quantity = fake()->numberBetween(1, 3);
+                $price    = $product->price;
+                $total    = round($price * $quantity, 2);
+                $subtotal += $total;
 
                 $items[] = [
                     'product_id'    => $product->id,
                     'product_name'  => $product->name_en,
                     'product_image' => $product->image,
                     'price'         => $price,
-                    'quantity'      => $qty,
-                    'size'          => null,
-                    'color'         => null,
-                    'total'         => $line,
+                    'quantity'      => $quantity,
+                    'size'          => is_array($product->sizes) && count($product->sizes) > 0
+                        ? fake()->randomElement($product->sizes)
+                        : null,
+                    'color'         => is_array($product->colors) && count($product->colors) > 0
+                        ? fake()->randomElement($product->colors)
+                        : null,
+                    'total'         => $total,
                 ];
             }
 
-            $shipping = rand(0, 1) ? 10.00 : 0.00;
-            $total    = round($subtotal + $shipping, 2);
+            $discount = fake()->boolean(30) ? round($subtotal * fake()->randomFloat(2, 0.05, 0.2), 2) : 0;
+            $shipping = fake()->randomElement([0, 5.00, 10.00]);
+            $grandTotal = round($subtotal - $discount + $shipping, 2);
 
-            // Spread orders over the last 90 days
-            $createdAt = Carbon::now()->subDays(rand(0, 90))->subHours(rand(0, 23));
-
-            $order = Order::create([
-                'user_id'        => $user?->id,
-                'order_number'   => 'ORD-' . strtoupper(substr(md5(uniqid()), 0, 8)),
-                'first_name'     => $firstName,
-                'last_name'      => $lastName,
-                'email'          => strtolower($firstName . '.' . $lastName . rand(1, 99) . '@example.com'),
-                'phone'          => '01' . rand(0, 2) . rand(10000000, 99999999),
-                'country'        => 'Egypt',
-                'city'           => $cities[array_rand($cities)],
-                'address'        => rand(1, 200) . ' ' . $streets[array_rand($streets)],
-                'postal_code'    => (string) rand(10000, 99999),
-                'note'           => null,
-                'coupon_code'    => null,
-                'subtotal'       => $subtotal,
-                'discount'       => 0,
-                'shipping'       => $shipping,
-                'total'          => $total,
-                'payment_method' => $method,
-                'payment_status' => 'paid',
-                'status'         => 'delivered',
-                'created_at'     => $createdAt,
-                'updated_at'     => $createdAt,
+            $order = Order::factory()->create([
+                'user_id'  => fake()->randomElement($users),
+                'subtotal' => $subtotal,
+                'discount' => $discount,
+                'shipping' => $shipping,
+                'total'    => $grandTotal,
             ]);
 
             foreach ($items as $item) {
-                $item['order_id']   = $order->id;
-                $item['created_at'] = $createdAt;
-                $item['updated_at'] = $createdAt;
-                OrderItem::create($item);
+                OrderItem::create(array_merge($item, ['order_id' => $order->id]));
             }
         }
-
-        $this->command->info('✅ 15 completed orders seeded successfully.');
     }
 }
