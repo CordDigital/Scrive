@@ -104,173 +104,179 @@
 
 @section('content')
 
-{{-- Breadcrumb --}}
-<div class="breadcrumb-block style-shared">
-    <div class="breadcrumb-main bg-linear overflow-hidden">
-        <div class="container lg:pt-[134px] pt-24 pb-10 relative">
-            <div class="main-content w-full h-full flex flex-col items-center justify-center relative z-[1]">
-                <div class="heading2 text-center">{{ app()->getLocale() === 'ar' ? 'سلة التسوق' : 'Shopping Cart' }}</div>
-                <div class="link flex items-center justify-center gap-1 caption1 mt-3">
-                    <a href="{{ route(app()->getLocale() === 'ar' ? 'home' : 'en.home') }}">
-                        {{ app()->getLocale() === 'ar' ? 'الرئيسية' : 'Homepage' }}
-                    </a>
-                    <i class="ph ph-caret-right text-sm text-secondary2"></i>
-                    <span class="text-secondary2">{{ app()->getLocale() === 'ar' ? 'السلة' : 'Cart' }}</span>
-                </div>
+
+    <!-- Page Header Start -->
+    <div class="container-fluid bg-secondary mb-5">
+        <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
+            <h1 class="font-weight-semi-bold text-uppercase mb-3">Shopping Cart</h1>
+            <div class="d-inline-flex">
+                <p class="m-0"><a href="">Home</a></p>
+                <p class="m-0 px-2">-</p>
+                <p class="m-0">Shopping Cart</p>
             </div>
         </div>
     </div>
-</div>
+    <!-- Page Header End -->
 
-<div class="cart-wrap">
-    <div class="container">
 
-        @if(count($items) > 0)
-        <div class="cart-grid">
-
-            {{-- ── Left: Items ── --}}
-            <div>
-                <div class="cart-card">
-                    <div class="cart-card-head">
-                        <span>{{ app()->getLocale() === 'ar' ? 'المنتج' : 'Product' }}</span>
-                        <span style="text-align:center;">{{ app()->getLocale() === 'ar' ? 'السعر' : 'Price' }}</span>
-                        <span style="text-align:center;">{{ app()->getLocale() === 'ar' ? 'الكمية' : 'Qty' }}</span>
-                        <span style="text-align:center;">{{ app()->getLocale() === 'ar' ? 'الإجمالي' : 'Total' }}</span>
-                        <span></span>
-                    </div>
-
-                    <div class="cart-table-section">
-                        @foreach($items as $key => $item)
-                        <div class="cart-item cart-row" data-key="{{ $key }}" data-price="{{ $item['price'] }}">
-
-                            {{-- Product --}}
-                            <div class="cart-product">
-                                <img src="{{ Storage::url($item['image']) }}" class="cart-img product-img" alt="{{ $item['name'] }}">
-                                <div>
-                                    <div class="cart-name product-name">{{ $item['name'] }}</div>
-                                    @if(!empty($item['size']) || !empty($item['color']))
-                                    <div class="cart-variant">
-                                        {{ $item['size'] ?? '' }}{{ !empty($item['size']) && !empty($item['color']) ? ' · ' : '' }}{{ $item['color'] ?? '' }}
+    <!-- Cart Start -->
+    <div class="container-fluid pt-5">
+        <div class="row px-xl-5">
+            <div class="col-lg-8 table-responsive mb-5">
+                <table class="table table-bordered text-center mb-0">
+                    <thead class="bg-secondary text-dark">
+                        <tr>
+                            <th>Products</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                            <th>Remove</th>
+                        </tr>
+                    </thead>
+                    <tbody class="align-middle">
+                        <tr>
+                            <td class="align-middle"><img src="img/product-1.jpg" alt="" style="width: 50px;"> Colorful Stylish Shirt</td>
+                            <td class="align-middle">$150</td>
+                            <td class="align-middle">
+                                <div class="input-group quantity mx-auto" style="width: 100px;">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-sm btn-primary btn-minus" >
+                                        <i class="fa fa-minus"></i>
+                                        </button>
                                     </div>
-                                    @endif
+                                    <input type="text" class="form-control form-control-sm bg-secondary text-center" value="1">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-sm btn-primary btn-plus">
+                                            <i class="fa fa-plus"></i>
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-
-                            {{-- Price --}}
-                            <div class="cart-price">EGP{{ number_format($item['price'], 2) }}</div>
-
-                            {{-- Qty --}}
-                            <div class="cart-qty">
-                                <div class="qty-wrap">
-                                    <button type="button" class="qty-btn qty-minus"
-                                            data-key="{{ $key }}"
-                                            data-qty="{{ $item['quantity'] - 1 }}"
-                                            data-url="{{ route(app()->getLocale() === 'ar' ? 'cart.update' : 'en.cart.update', $key) }}">−</button>
-                                    <span class="qty-val">{{ $item['quantity'] }}</span>
-                                    <button type="button" class="qty-btn qty-plus"
-                                            data-key="{{ $key }}"
-                                            data-qty="{{ $item['quantity'] + 1 }}"
-                                            data-url="{{ route(app()->getLocale() === 'ar' ? 'cart.update' : 'en.cart.update', $key) }}">+</button>
+                            </td>
+                            <td class="align-middle">$150</td>
+                            <td class="align-middle"><button class="btn btn-sm btn-primary"><i class="fa fa-times"></i></button></td>
+                        </tr>
+                        <tr>
+                            <td class="align-middle"><img src="img/product-2.jpg" alt="" style="width: 50px;"> Colorful Stylish Shirt</td>
+                            <td class="align-middle">$150</td>
+                            <td class="align-middle">
+                                <div class="input-group quantity mx-auto" style="width: 100px;">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-sm btn-primary btn-minus" >
+                                        <i class="fa fa-minus"></i>
+                                        </button>
+                                    </div>
+                                    <input type="text" class="form-control form-control-sm bg-secondary text-center" value="1">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-sm btn-primary btn-plus">
+                                            <i class="fa fa-plus"></i>
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-
-                            {{-- Total --}}
-                            <div class="cart-total-cell">EGP<span class="item-total">{{ number_format($item['price'] * $item['quantity'], 2) }}</span></div>
-
-                            {{-- Remove --}}
-                            <button type="button" class="remove-cart-btn"
-                                    data-key="{{ $key }}"
-                                    data-url="{{ route(app()->getLocale() === 'ar' ? 'cart.remove' : 'en.cart.remove', $key) }}"
-                                    title="{{ app()->getLocale() === 'ar' ? 'حذف' : 'Remove' }}">
-                                <i class="ph ph-trash"></i>
-                            </button>
-
+                            </td>
+                            <td class="align-middle">$150</td>
+                            <td class="align-middle"><button class="btn btn-sm btn-primary"><i class="fa fa-times"></i></button></td>
+                        </tr>
+                        <tr>
+                            <td class="align-middle"><img src="img/product-3.jpg" alt="" style="width: 50px;"> Colorful Stylish Shirt</td>
+                            <td class="align-middle">$150</td>
+                            <td class="align-middle">
+                                <div class="input-group quantity mx-auto" style="width: 100px;">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-sm btn-primary btn-minus" >
+                                        <i class="fa fa-minus"></i>
+                                        </button>
+                                    </div>
+                                    <input type="text" class="form-control form-control-sm bg-secondary text-center" value="1">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-sm btn-primary btn-plus">
+                                            <i class="fa fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="align-middle">$150</td>
+                            <td class="align-middle"><button class="btn btn-sm btn-primary"><i class="fa fa-times"></i></button></td>
+                        </tr>
+                        <tr>
+                            <td class="align-middle"><img src="img/product-4.jpg" alt="" style="width: 50px;"> Colorful Stylish Shirt</td>
+                            <td class="align-middle">$150</td>
+                            <td class="align-middle">
+                                <div class="input-group quantity mx-auto" style="width: 100px;">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-sm btn-primary btn-minus" >
+                                        <i class="fa fa-minus"></i>
+                                        </button>
+                                    </div>
+                                    <input type="text" class="form-control form-control-sm bg-secondary text-center" value="1">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-sm btn-primary btn-plus">
+                                            <i class="fa fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="align-middle">$150</td>
+                            <td class="align-middle"><button class="btn btn-sm btn-primary"><i class="fa fa-times"></i></button></td>
+                        </tr>
+                        <tr>
+                            <td class="align-middle"><img src="img/product-5.jpg" alt="" style="width: 50px;"> Colorful Stylish Shirt</td>
+                            <td class="align-middle">$150</td>
+                            <td class="align-middle">
+                                <div class="input-group quantity mx-auto" style="width: 100px;">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-sm btn-primary btn-minus" >
+                                        <i class="fa fa-minus"></i>
+                                        </button>
+                                    </div>
+                                    <input type="text" class="form-control form-control-sm bg-secondary text-center" value="1">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-sm btn-primary btn-plus">
+                                            <i class="fa fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="align-middle">$150</td>
+                            <td class="align-middle"><button class="btn btn-sm btn-primary"><i class="fa fa-times"></i></button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-lg-4">
+                <form class="mb-5" action="">
+                    <div class="input-group">
+                        <input type="text" class="form-control p-4" placeholder="Coupon Code">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary">Apply Coupon</button>
                         </div>
-                        @endforeach
                     </div>
-
-                    {{-- Coupon --}}
-                    <div class="coupon-wrap">
-                        <form id="coupon-form" class="coupon-form">
-                            <input type="text" name="code" class="coupon-input"
-                                   placeholder="{{ app()->getLocale() === 'ar' ? 'كود الخصم' : 'Coupon code' }}">
-                            <button type="submit" class="coupon-btn">
-                                {{ app()->getLocale() === 'ar' ? 'تطبيق' : 'Apply' }}
-                            </button>
-                        </form>
+                </form>
+                <div class="card border-secondary mb-5">
+                    <div class="card-header bg-secondary border-0">
+                        <h4 class="font-weight-semi-bold m-0">Cart Summary</h4>
                     </div>
-                </div>
-
-                {{-- Back to shop --}}
-                <a href="{{ route(app()->getLocale() === 'ar' ? 'shop' : 'en.shop') }}" class="back-shop" style="margin-top:18px; display:inline-flex;">
-                    <i class="ph ph-arrow-left"></i>
-                    {{ app()->getLocale() === 'ar' ? 'متابعة التسوق' : 'Continue Shopping' }}
-                </a>
-            </div>
-
-            {{-- ── Right: Summary ── --}}
-            <div>
-                <div class="summary-card">
-                    <div class="summary-title">{{ app()->getLocale() === 'ar' ? 'ملخص الطلب' : 'Order Summary' }}</div>
-
-                    <div class="summary-row">
-                        <span class="summary-label">{{ app()->getLocale() === 'ar' ? 'المجموع الفرعي' : 'Subtotal' }}</span>
-                        <span class="summary-val">EGP<span class="total-product">{{ number_format($subtotal, 2) }}</span></span>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mb-3 pt-1">
+                            <h6 class="font-weight-medium">Subtotal</h6>
+                            <h6 class="font-weight-medium">$150</h6>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <h6 class="font-weight-medium">Shipping</h6>
+                            <h6 class="font-weight-medium">$10</h6>
+                        </div>
                     </div>
-
-                    <div class="summary-row">
-                        <span class="summary-label">{{ app()->getLocale() === 'ar' ? 'خصم الكوبون' : 'Coupon Discount' }}</span>
-                        <span class="summary-val summary-discount">- EGP<span class="discount">{{ number_format($discount ?? 0, 2) }}</span></span>
-                    </div>
-
-                    <div class="summary-row">
-                        <span class="summary-label">{{ app()->getLocale() === 'ar' ? 'الشحن' : 'Shipping' }}</span>
-                        <span style="font-size:12px; color:#bbb; font-weight:600;">{{ app()->getLocale() === 'ar' ? 'يُحسب لاحقاً' : 'Calculated at checkout' }}</span>
-                    </div>
-
-                    <div class="summary-divider"></div>
-
-                    <div class="summary-total-row">
-                        <span class="summary-total-label">{{ app()->getLocale() === 'ar' ? 'الإجمالي' : 'Total' }}</span>
-                        <span class="summary-total-val">EGP<span class="total-cart">{{ number_format($total, 2) }}</span></span>
-                    </div>
-
-                    @auth
-                    <a href="{{ route(app()->getLocale() === 'ar' ? 'checkout' : 'en.checkout') }}" class="checkout-btn">
-                        <i class="ph ph-lock-simple" style="margin-inline-end:6px;"></i>
-                        {{ app()->getLocale() === 'ar' ? 'أكمل عملية الشراء' : 'Proceed to Checkout' }}
-                    </a>
-                    @else
-                    <a href="{{ route(app()->getLocale() === 'ar' ? 'login' : 'en.login', ['redirect' => url()->current()]) }}" class="checkout-btn">
-                        <i class="ph ph-lock-simple" style="margin-inline-end:6px;"></i>
-                        {{ app()->getLocale() === 'ar' ? 'أكمل عملية الشراء' : 'Proceed to Checkout' }}
-                    </a>
-                    @endauth
-
-                    <div class="trust-row">
-                        <div class="trust-item"><i class="ph ph-shield-check"></i>{{ app()->getLocale() === 'ar' ? 'آمن' : 'Secure' }}</div>
-                        <div class="trust-item"><i class="ph ph-truck"></i>{{ app()->getLocale() === 'ar' ? 'شحن سريع' : 'Fast Ship' }}</div>
-                        <div class="trust-item"><i class="ph ph-credit-card"></i>{{ app()->getLocale() === 'ar' ? 'دفع مرن' : 'Easy Pay' }}</div>
+                    <div class="card-footer border-secondary bg-transparent">
+                        <div class="d-flex justify-content-between mt-2">
+                            <h5 class="font-weight-bold">Total</h5>
+                            <h5 class="font-weight-bold">$160</h5>
+                        </div>
+                        <button class="btn btn-block btn-primary my-3 py-3">Proceed To Checkout</button>
                     </div>
                 </div>
             </div>
-
         </div>
-
-        @else
-        {{-- Empty Cart --}}
-        <div class="cart-empty">
-            <i class="ph ph-shopping-cart-simple"></i>
-            <p>{{ app()->getLocale() === 'ar' ? 'سلتك فارغة' : 'Your cart is empty' }}</p>
-            <a href="{{ route(app()->getLocale() === 'ar' ? 'shop' : 'en.shop') }}" class="button-main">
-                {{ app()->getLocale() === 'ar' ? 'تسوق الآن' : 'Start Shopping' }}
-            </a>
-        </div>
-        @endif
-
     </div>
-</div>
-
+    <!-- Cart End -->
 @endsection
 
 @push('scripts')

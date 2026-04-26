@@ -24,254 +24,205 @@ select.checkout-invalid {
 
 @section('content')
 
-<div class="breadcrumb-block style-shared">
-    <div class="breadcrumb-main bg-linear overflow-hidden">
-        <div class="container lg:pt-[134px] pt-24 pb-10 relative">
-            <div class="main-content w-full h-full flex flex-col items-center justify-center relative z-[1]">
-                <div class="heading2 text-center">{{ __('Checkout') }}</div>
-                <div class="link flex items-center justify-center gap-1 caption1 mt-3">
-                    <a href="{{ route('home') }}">{{ __('Homepage') }}</a>
-                    <i class="ph ph-caret-right text-sm text-secondary2"></i>
-                    <span class="text-secondary2">{{ __('Checkout') }}</span>
+  <!-- Page Header Start -->
+    <div class="container-fluid bg-secondary mb-5">
+        <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
+            <h1 class="font-weight-semi-bold text-uppercase mb-3">Checkout</h1>
+            <div class="d-inline-flex">
+                <p class="m-0"><a href="">Home</a></p>
+                <p class="m-0 px-2">-</p>
+                <p class="m-0">Checkout</p>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+
+    <!-- Checkout Start -->
+    <div class="container-fluid pt-5">
+        <div class="row px-xl-5">
+            <div class="col-lg-8">
+                <div class="mb-4">
+                    <h4 class="font-weight-semi-bold mb-4">Billing Address</h4>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label>First Name</label>
+                            <input class="form-control" type="text" placeholder="John">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Last Name</label>
+                            <input class="form-control" type="text" placeholder="Doe">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>E-mail</label>
+                            <input class="form-control" type="text" placeholder="example@email.com">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Mobile No</label>
+                            <input class="form-control" type="text" placeholder="+123 456 789">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Address Line 1</label>
+                            <input class="form-control" type="text" placeholder="123 Street">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Address Line 2</label>
+                            <input class="form-control" type="text" placeholder="123 Street">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Country</label>
+                            <select class="custom-select">
+                                <option selected>United States</option>
+                                <option>Afghanistan</option>
+                                <option>Albania</option>
+                                <option>Algeria</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>City</label>
+                            <input class="form-control" type="text" placeholder="New York">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>State</label>
+                            <input class="form-control" type="text" placeholder="New York">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>ZIP Code</label>
+                            <input class="form-control" type="text" placeholder="123">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="newaccount">
+                                <label class="custom-control-label" for="newaccount">Create an account</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="shipto">
+                                <label class="custom-control-label" for="shipto"  data-toggle="collapse" data-target="#shipping-address">Ship to different address</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="collapse mb-4" id="shipping-address">
+                    <h4 class="font-weight-semi-bold mb-4">Shipping Address</h4>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label>First Name</label>
+                            <input class="form-control" type="text" placeholder="John">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Last Name</label>
+                            <input class="form-control" type="text" placeholder="Doe">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>E-mail</label>
+                            <input class="form-control" type="text" placeholder="example@email.com">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Mobile No</label>
+                            <input class="form-control" type="text" placeholder="+123 456 789">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Address Line 1</label>
+                            <input class="form-control" type="text" placeholder="123 Street">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Address Line 2</label>
+                            <input class="form-control" type="text" placeholder="123 Street">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Country</label>
+                            <select class="custom-select">
+                                <option selected>United States</option>
+                                <option>Afghanistan</option>
+                                <option>Albania</option>
+                                <option>Algeria</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>City</label>
+                            <input class="form-control" type="text" placeholder="New York">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>State</label>
+                            <input class="form-control" type="text" placeholder="New York">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>ZIP Code</label>
+                            <input class="form-control" type="text" placeholder="123">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card border-secondary mb-5">
+                    <div class="card-header bg-secondary border-0">
+                        <h4 class="font-weight-semi-bold m-0">Order Total</h4>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="font-weight-medium mb-3">Products</h5>
+                        <div class="d-flex justify-content-between">
+                            <p>Colorful Stylish Shirt 1</p>
+                            <p>$150</p>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <p>Colorful Stylish Shirt 2</p>
+                            <p>$150</p>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <p>Colorful Stylish Shirt 3</p>
+                            <p>$150</p>
+                        </div>
+                        <hr class="mt-0">
+                        <div class="d-flex justify-content-between mb-3 pt-1">
+                            <h6 class="font-weight-medium">Subtotal</h6>
+                            <h6 class="font-weight-medium">$150</h6>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <h6 class="font-weight-medium">Shipping</h6>
+                            <h6 class="font-weight-medium">$10</h6>
+                        </div>
+                    </div>
+                    <div class="card-footer border-secondary bg-transparent">
+                        <div class="d-flex justify-content-between mt-2">
+                            <h5 class="font-weight-bold">Total</h5>
+                            <h5 class="font-weight-bold">$160</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="card border-secondary mb-5">
+                    <div class="card-header bg-secondary border-0">
+                        <h4 class="font-weight-semi-bold m-0">Payment</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" name="payment" id="paypal">
+                                <label class="custom-control-label" for="paypal">Paypal</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" name="payment" id="directcheck">
+                                <label class="custom-control-label" for="directcheck">Direct Check</label>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" name="payment" id="banktransfer">
+                                <label class="custom-control-label" for="banktransfer">Bank Transfer</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer border-secondary bg-transparent">
+                        <button class="btn btn-lg btn-block btn-primary font-weight-bold my-3 py-3">Place Order</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
-<div class="checkout-block md:py-20 py-10">
-    <div class="container">
-
-        @if($errors->any())
-        <div class="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-lg mb-6">
-            <ul class="list-disc list-inside text-sm">
-                @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-        @endif
-
-        <form action="{{ route(app()->getLocale() === 'ar' ? 'checkout.store' : 'en.checkout.store') }}"
-              method="POST" id="checkoutForm">
-            @csrf
-
-            <div class="content-main flex max-lg:flex-col-reverse gap-y-10 justify-between">
-
-                {{-- ── Left: Delivery + Payment ── --}}
-                <div class="left lg:w-1/2">
-
-                    {{-- Delivery Info --}}
-                    <div class="information">
-                        <div class="heading5">{{ __('Delivery Information') }}</div>
-                        <div class="form-checkout mt-5">
-                            <div class="grid sm:grid-cols-2 gap-4 gap-y-5">
-
-                                <div>
-                                    <input class="border-line px-4 py-3 w-full rounded-lg @error('first_name') border-red-400 @enderror"
-                                           name="first_name" type="text"
-                                           placeholder="{{ __('First Name') }} *"
-                                           value="{{ old('first_name', auth()->user()->name) }}" required />
-                                    @error('first_name') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
-                                </div>
-
-                                <div>
-                                    <input class="border-line px-4 py-3 w-full rounded-lg @error('last_name') border-red-400 @enderror"
-                                           name="last_name" type="text"
-                                           placeholder="{{ __('Last Name') }} *"
-                                           value="{{ old('last_name') }}" required />
-                                    @error('last_name') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
-                                </div>
-
-                                <div>
-                                    <input class="border-line px-4 py-3 w-full rounded-lg @error('email') border-red-400 @enderror"
-                                           name="email" type="email"
-                                           placeholder="{{ __('Email Address') }} *"
-                                           value="{{ old('email', auth()->user()->email) }}" required />
-                                    @error('email') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
-                                </div>
-
-                                <div>
-                                    <input class="border-line px-4 py-3 w-full rounded-lg @error('phone') border-red-400 @enderror"
-                                           name="phone" type="tel"
-                                           placeholder="{{ __('Phone Number') }} *"
-                                           value="{{ old('phone') }}" required />
-                                    @error('phone') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
-                                </div>
-
-                                <div>
-                                    <input class="border-line px-4 py-3 w-full rounded-lg @error('country') border-red-400 @enderror"
-                                           name="country" type="text"
-                                           placeholder="{{ __('Country') }} *"
-                                           value="{{ old('country') }}" required />
-                                    @error('country') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
-                                </div>
-
-                                <div>
-                                    <input class="border-line px-4 py-3 w-full rounded-lg @error('city') border-red-400 @enderror"
-                                           name="city" type="text"
-                                           placeholder="{{ __('City') }} *"
-                                           value="{{ old('city') }}" required />
-                                    @error('city') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
-                                </div>
-
-                                <div class="col-span-full">
-                                    <input class="border-line px-4 py-3 w-full rounded-lg @error('address') border-red-400 @enderror"
-                                           name="address" type="text"
-                                           placeholder="{{ __('Street Address') }} *"
-                                           value="{{ old('address') }}" required />
-                                    @error('address') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
-                                </div>
-
-                                <div>
-                                    <input class="border-line px-4 py-3 w-full rounded-lg"
-                                           name="postal_code" type="text"
-                                           placeholder="{{ __('Postal Code') }}"
-                                           value="{{ old('postal_code') }}" />
-                                </div>
-
-                                <div class="col-span-full">
-                                    <textarea class="border border-line px-4 py-3 w-full rounded-lg"
-                                              name="note" rows="3"
-                                              placeholder="{{ __('Order note (optional)') }}">{{ old('note') }}</textarea>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    {{-- Payment Method --}}
-                    <div class="payment-block md:mt-10 mt-6">
-                        <div class="heading5">{{ __('Payment Method') }}</div>
-
-                        <div class="list-payment mt-5 flex flex-col gap-4">
-
-                            {{-- Cash on Delivery --}}
-                            <label class="type bg-surface p-5 border border-line rounded-lg cursor-pointer duration-200"
-                                   id="label-cash">
-                                <div class="flex items-center gap-3">
-                                    <input type="radio" name="payment_method" value="cash" id="pay-cash"
-                                           {{ old('payment_method', 'cash') === 'cash' ? 'checked' : '' }} />
-                                    <div class="flex items-center gap-2">
-                                        <i class="ph ph-money text-xl"></i>
-                                        <span class="text-button">{{ __('Cash on Delivery') }}</span>
-                                    </div>
-                                </div>
-                                <div class="pay-detail text-secondary text-sm mt-3 {{ old('payment_method', 'cash') !== 'cash' ? 'hidden' : '' }}">
-                                    {{ __('Pay with cash upon delivery of your order.') }}
-                                </div>
-                            </label>
-
-                            {{-- Credit Card / Stripe --}}
-                            <label class="type bg-surface p-5 border border-line rounded-lg cursor-pointer duration-200"
-                                   id="label-credit">
-                                <div class="flex items-center gap-3">
-                                    <input type="radio" name="payment_method" value="credit_card" id="pay-credit"
-                                           {{ old('payment_method') === 'credit_card' ? 'checked' : '' }} />
-                                    <div class="flex items-center gap-2">
-                                        <i class="ph ph-credit-card text-xl"></i>
-                                        <span class="text-button">{{ __('Credit Card') }}</span>
-                                        <img src="{{ asset('assets/images/payment/visa.png') }}" alt="visa" class="h-5" onerror="this.remove()">
-                                        <img src="{{ asset('assets/images/payment/master.png') }}" alt="master" class="h-5" onerror="this.remove()">
-                                    </div>
-                                </div>
-                                <div class="pay-detail mt-3 {{ old('payment_method') !== 'credit_card' ? 'hidden' : '' }}">
-                                    {{-- Stripe card element --}}
-                                    <div id="stripe-card-element" class="border-line px-4 py-3 rounded-lg bg-white"></div>
-                                    <div id="stripe-card-errors" class="text-red-500 text-xs mt-2"></div>
-                                </div>
-                            </label>
-
-                            {{-- PayPal --}}
-                            <label class="type bg-surface p-5 border border-line rounded-lg cursor-pointer duration-200"
-                                   id="label-paypal">
-                                <div class="flex items-center gap-3">
-                                    <input type="radio" name="payment_method" value="paypal" id="pay-paypal"
-                                           {{ old('payment_method') === 'paypal' ? 'checked' : '' }} />
-                                    <div class="flex items-center gap-2">
-                                        <i class="ph ph-currency-circle-dollar text-xl"></i>
-                                        <span class="text-button">PayPal</span>
-                                    </div>
-                                </div>
-                                <div class="pay-detail text-secondary text-sm mt-3 {{ old('payment_method') !== 'paypal' ? 'hidden' : '' }}">
-                                    {{ __('You will be redirected to PayPal to complete payment.') }}
-                                </div>
-                            </label>
-
-                        </div>
-                    </div>
-
-                    {{-- Submit --}}
-                    <div class="block-button md:mt-10 mt-6">
-                        <button type="button" id="placeOrderBtn" class="button-main w-full relative">
-                            <span id="placeOrderText">{{ __('Place Order') }}</span>
-                            <span id="placeOrderSpinner" class="hidden ml-2">
-                                <i class="ph ph-spinner animate-spin"></i>
-                            </span>
-                        </button>
-                    </div>
-                </div>
-
-                {{-- ── Right: Order Summary ── --}}
-                <div class="right lg:w-5/12">
-                    <div class="checkout-block bg-surface p-6 rounded-2xl sticky top-28">
-                        <div class="heading5 pb-4 border-b border-line">{{ __('Your Order') }}</div>
-
-                        <div class="list-product-checkout mt-4 flex flex-col gap-4">
-                            @foreach($items as $item)
-                            <div class="flex items-center gap-3">
-                                <div class="relative flex-shrink-0">
-                                    <img src="{{ Storage::url($item['image']) }}"
-                                         alt="{{ $item['name'] }}"
-                                         class="w-16 h-16 object-cover rounded-xl">
-                                    <span class="absolute -top-2 -right-2 w-5 h-5 bg-black text-white text-xs rounded-full flex items-center justify-center">
-                                        {{ $item['quantity'] }}
-                                    </span>
-                                </div>
-                                <div class="flex-1">
-                                    <div class="text-title text-sm font-semibold">{{ $item['name'] }}</div>
-                                    @if($item['size'] || $item['color'])
-                                    <div class="caption2 text-secondary">
-                                        {{ $item['size'] }}{{ $item['color'] ? ' / '.$item['color'] : '' }}
-                                    </div>
-                                    @endif
-                                </div>
-                                <div class="text-title font-semibold text-sm">
-                                   EGP{{ number_format($item['price'] * $item['quantity'], 2) }}
-                                </div>
-                            </div>
-                            @endforeach
-                        </div>
-
-                        <div class="border-t border-line mt-5 pt-4 flex flex-col gap-3">
-                            <div class="flex justify-between">
-                                <span class="text-title">{{ __('Subtotal') }}</span>
-                                <span class="text-title font-semibold">${{ number_format($subtotal, 2) }}</span>
-                            </div>
-                            @if($discount > 0)
-                            <div class="flex justify-between">
-                                <span class="text-title">{{ __('Discount') }}
-                                    @if($coupon) <span class="caption2 text-green-600">({{ $coupon['code'] }})</span> @endif
-                                </span>
-                                <span class="text-title font-semibold text-red-500">-${{ number_format($discount, 2) }}</span>
-                            </div>
-                            @endif
-                            <div class="flex justify-between">
-                                <span class="text-title">{{ __('Shipping') }}</span>
-                                <span class="text-green-600 font-semibold">{{ __('Free') }}</span>
-                            </div>
-                            <div class="flex justify-between pt-3 border-t border-line">
-                                <span class="heading5">{{ __('Total') }}</span>
-                                <span class="heading5">${{ number_format($total, 2) }}</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </form>
-    </div>
-</div>
+    <!-- Checkout End -->
 
 @endsection
 

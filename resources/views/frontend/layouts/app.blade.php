@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}" dir="{{ app()->getLocale() === 'ar' ? 'rtl' : 'ltr' }}">
+<html lang="{{ app()->getLocale() }}" dir="{{ app()->getLocale() === 'ar' ? 'ltr' : 'ltr' }}">
 
 <head>
     @if(isset($sliders) && $sliders->isNotEmpty())
@@ -153,7 +153,6 @@
         </div>
     </div>
 
-    {{-- Scripts: swiper بدون defer عشان الـ swipers محتاجاه فوراً --}}
     <script src="{{ asset('assets/js/swiper-bundle.min.js') }}"></script>
     <script src="{{ asset('assets/js/phosphor-icons.js') }}" defer></script>
 
@@ -163,8 +162,6 @@
 
 
 
- <!-- Back to Top -->
-    <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
 
     <!-- JavaScript Libraries -->
