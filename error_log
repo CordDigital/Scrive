@@ -1,0 +1,214 @@
+[11-Mar-2026 10:37:42 UTC] PHP Deprecated:  rtrim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/zizi/public_html/config/filesystems.php on line 44
+[17-Mar-2026 14:31:44 UTC] PHP Deprecated:  rtrim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/ziziabusalla/public_html/config/filesystems.php on line 44
+[29-Mar-2026 11:20:54 UTC] PHP Fatal error:  Trait "App\Models\HasFactory" not found in /home/ziziabusalla/public_html/app/Models/stores.php on line 7
+[29-Mar-2026 11:20:55 UTC] PHP Fatal error:  Trait "App\Models\HasFactory" not found in /home/ziziabusalla/public_html/app/Models/stores.php on line 7
+[29-Mar-2026 11:21:03 UTC] PHP Fatal error:  Trait "App\Models\HasFactory" not found in /home/ziziabusalla/public_html/app/Models/stores.php on line 7
+[29-Mar-2026 11:21:03 UTC] PHP Fatal error:  Trait "App\Models\HasFactory" not found in /home/ziziabusalla/public_html/app/Models/stores.php on line 7
+[29-Mar-2026 11:22:02 UTC] PHP Fatal error:  Trait "App\Models\HasFactory" not found in /home/ziziabusalla/public_html/app/Models/stores.php on line 7
+[29-Mar-2026 11:23:02 UTC] PHP Fatal error:  Trait "App\Models\HasFactory" not found in /home/ziziabusalla/public_html/app/Models/stores.php on line 7
+[29-Mar-2026 11:24:02 UTC] PHP Fatal error:  Trait "App\Models\HasFactory" not found in /home/ziziabusalla/public_html/app/Models/stores.php on line 7
+[29-Mar-2026 11:25:02 UTC] PHP Fatal error:  Trait "App\Models\HasFactory" not found in /home/ziziabusalla/public_html/app/Models/stores.php on line 7
+[29-Mar-2026 11:26:02 UTC] PHP Fatal error:  Trait "App\Models\HasFactory" not found in /home/ziziabusalla/public_html/app/Models/stores.php on line 7
+[29-Mar-2026 11:26:38 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method Illuminate\Support\Facades\Route::getTable() in Command line code:26
+Stack trace:
+#0 {main}
+  thrown in Command line code on line 26
+[29-Mar-2026 11:27:02 UTC] PHP Fatal error:  Trait "App\Models\HasFactory" not found in /home/ziziabusalla/public_html/app/Models/stores.php on line 7
+[29-Mar-2026 11:28:02 UTC] PHP Fatal error:  Trait "App\Models\HasFactory" not found in /home/ziziabusalla/public_html/app/Models/stores.php on line 7
+[29-Mar-2026 11:29:02 UTC] PHP Fatal error:  Trait "App\Models\HasFactory" not found in /home/ziziabusalla/public_html/app/Models/stores.php on line 7
+[29-Mar-2026 11:29:38 UTC] PHP Fatal error:  Trait "App\Models\HasFactory" not found in /home/ziziabusalla/public_html/app/Models/store.php on line 7
+[29-Mar-2026 11:29:39 UTC] PHP Fatal error:  Trait "App\Models\HasFactory" not found in /home/ziziabusalla/public_html/app/Models/store.php on line 7
+[29-Mar-2026 11:29:43 UTC] PHP Fatal error:  Trait "App\Models\HasFactory" not found in /home/ziziabusalla/public_html/app/Models/store.php on line 7
+[29-Mar-2026 11:30:02 UTC] PHP Fatal error:  Trait "App\Models\HasFactory" not found in /home/ziziabusalla/public_html/app/Models/store.php on line 7
+[29-Mar-2026 11:30:46 UTC] PHP Fatal error:  Trait "App\Models\HasFactory" not found in /home/ziziabusalla/public_html/app/Models/store.php on line 7
+[29-Mar-2026 11:30:51 UTC] PHP Fatal error:  Trait "App\Models\HasFactory" not found in /home/ziziabusalla/public_html/app/Models/store.php on line 7
+[29-Mar-2026 11:32:12 UTC] PHP Fatal error:  Cannot declare class App\Models\Store, because the name is already in use in /home/ziziabusalla/public_html/app/Models/store.php on line 8
+[29-Mar-2026 11:32:17 UTC] PHP Fatal error:  Cannot declare class App\Models\Store, because the name is already in use in /home/ziziabusalla/public_html/app/Models/store.php on line 8
+[29-Mar-2026 11:32:24 UTC] PHP Fatal error:  Cannot declare class App\Models\Store, because the name is already in use in /home/ziziabusalla/public_html/app/Models/store.php on line 8
+[29-Mar-2026 11:36:36 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method Illuminate\Support\Facades\Route::getTable() in Command line code:26
+Stack trace:
+#0 {main}
+  thrown in Command line code on line 26
+[29-Mar-2026 11:38:53 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method Illuminate\Support\Facades\Schema::getTable() in Command line code:26
+Stack trace:
+#0 {main}
+  thrown in Command line code on line 26
+[29-Mar-2026 11:46:13 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method Illuminate\Support\Facades\Schema::getTable() in Command line code:26
+Stack trace:
+#0 {main}
+  thrown in Command line code on line 26
+[29-Mar-2026 11:46:15 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method Illuminate\Support\Facades\Schema::getTable() in Command line code:26
+Stack trace:
+#0 {main}
+  thrown in Command line code on line 26
+[29-Mar-2026 11:46:18 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method Illuminate\Support\Facades\Schema::getTable() in Command line code:26
+Stack trace:
+#0 {main}
+  thrown in Command line code on line 26
+[29-Mar-2026 11:46:24 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method Illuminate\Support\Facades\Schema::getTable() in Command line code:26
+Stack trace:
+#0 {main}
+  thrown in Command line code on line 26
+[29-Mar-2026 12:02:10 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method Illuminate\Support\Facades\Storage::getTable() in Command line code:26
+Stack trace:
+#0 {main}
+  thrown in Command line code on line 26
+[29-Mar-2026 12:08:37 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method Illuminate\Support\Facades\Route::getTable() in Command line code:26
+Stack trace:
+#0 {main}
+  thrown in Command line code on line 26
+[29-Mar-2026 12:08:47 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method Illuminate\Support\Facades\Route::getTable() in Command line code:26
+Stack trace:
+#0 {main}
+  thrown in Command line code on line 26
+[29-Mar-2026 12:08:55 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method Illuminate\Support\Facades\Route::getTable() in Command line code:26
+Stack trace:
+#0 {main}
+  thrown in Command line code on line 26
+[29-Mar-2026 12:08:57 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method Illuminate\Support\Facades\Route::getTable() in Command line code:26
+Stack trace:
+#0 {main}
+  thrown in Command line code on line 26
+[29-Mar-2026 12:08:57 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method Illuminate\Support\Facades\Route::getTable() in Command line code:26
+Stack trace:
+#0 {main}
+  thrown in Command line code on line 26
+[29-Mar-2026 12:09:17 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method Illuminate\Support\Facades\Route::getTable() in Command line code:26
+Stack trace:
+#0 {main}
+  thrown in Command line code on line 26
+[29-Mar-2026 12:09:17 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method Illuminate\Support\Facades\Route::getTable() in Command line code:26
+Stack trace:
+#0 {main}
+  thrown in Command line code on line 26
+[29-Mar-2026 12:09:31 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method Illuminate\Support\Facades\Route::getTable() in Command line code:26
+Stack trace:
+#0 {main}
+  thrown in Command line code on line 26
+[29-Mar-2026 12:09:34 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method Illuminate\Support\Facades\Route::getTable() in Command line code:26
+Stack trace:
+#0 {main}
+  thrown in Command line code on line 26
+[29-Mar-2026 12:09:35 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method Illuminate\Support\Facades\Route::getTable() in Command line code:26
+Stack trace:
+#0 {main}
+  thrown in Command line code on line 26
+[29-Mar-2026 12:09:58 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method Illuminate\Support\Facades\Route::getTable() in Command line code:26
+Stack trace:
+#0 {main}
+  thrown in Command line code on line 26
+[29-Mar-2026 12:09:58 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method Illuminate\Support\Facades\Route::getTable() in Command line code:26
+Stack trace:
+#0 {main}
+  thrown in Command line code on line 26
+[29-Mar-2026 12:10:03 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method Illuminate\Support\Facades\Route::getTable() in Command line code:26
+Stack trace:
+#0 {main}
+  thrown in Command line code on line 26
+[29-Mar-2026 12:10:36 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method Illuminate\Support\Facades\Route::getTable() in Command line code:26
+Stack trace:
+#0 {main}
+  thrown in Command line code on line 26
+[29-Mar-2026 13:17:51 UTC] PHP Fatal error:  Uncaught ReflectionException: Class "session.store" does not exist in /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php:1122
+Stack trace:
+#0 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(1122): ReflectionClass->__construct('session.store')
+#1 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(933): Illuminate\Container\Container->build('session.store')
+#2 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1078): Illuminate\Container\Container->resolve('session.store', Array, true)
+#3 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(864): Illuminate\Foundation\Application->resolve('session.store', Array)
+#4 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1058): Illuminate\Container\Container->make('session.store', Array)
+#5 Command line code(8): Illuminate\Foundation\Application->make('session.store')
+#6 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [session.store] does not exist. in /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php:1124
+Stack trace:
+#0 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(933): Illuminate\Container\Container->build('session.store')
+#1 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1078): Illuminate\Container\Container->resolve('session.store', Array, true)
+#2 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(864): Illuminate\Foundation\Application->resolve('session.store', Array)
+#3 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1058): Illuminate\Container\Container->make('session.store', Array)
+#4 Command line code(8): Illuminate\Foundation\Application->make('session.store')
+#5 {main}
+  thrown in /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 1124
+[31-Mar-2026 15:54:16 UTC] PHP Fatal error:  Uncaught RuntimeException: Translation file [/home/ziziabusalla/public_html/lang/ar.json] contains an invalid JSON structure. in /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Translation/FileLoader.php:152
+Stack trace:
+#0 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Collections/Traits/EnumeratesValues.php(850): Illuminate\Translation\FileLoader->Illuminate\Translation\{closure}(Array, '/home/ziziabusa...', 1)
+#1 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Translation/FileLoader.php(147): Illuminate\Support\Collection->reduce(Object(Closure), Array)
+#2 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Translation/FileLoader.php(64): Illuminate\Translation\FileLoader->loadJsonPaths('ar')
+#3 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Translation/Translator.php(338): Illuminate\Translation\FileLoader->load('ar', '*', '*')
+#4 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Translation/Translator.php(158): Illuminate\Translation\Translator->load('*', '*', 'ar')
+#5 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php(996): Illuminate\Translation\Translator->get('auth', Array, 'ar')
+#6 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php(1028): trans('auth', Array, NULL)
+#7 Command line code(1): __('auth')
+#8 {main}
+  thrown in /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Translation/FileLoader.php on line 152
+[31-Mar-2026 15:54:22 UTC] PHP Fatal error:  Uncaught RuntimeException: Translation file [/home/ziziabusalla/public_html/lang/ar.json] contains an invalid JSON structure. in /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Translation/FileLoader.php:152
+Stack trace:
+#0 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Collections/Traits/EnumeratesValues.php(850): Illuminate\Translation\FileLoader->Illuminate\Translation\{closure}(Array, '/home/ziziabusa...', 1)
+#1 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Translation/FileLoader.php(147): Illuminate\Support\Collection->reduce(Object(Closure), Array)
+#2 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Translation/FileLoader.php(64): Illuminate\Translation\FileLoader->loadJsonPaths('ar')
+#3 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Translation/Translator.php(338): Illuminate\Translation\FileLoader->load('ar', '*', '*')
+#4 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Translation/Translator.php(158): Illuminate\Translation\Translator->load('*', '*', 'ar')
+#5 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php(996): Illuminate\Translation\Translator->get('auth', Array, 'ar')
+#6 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php(1028): trans('auth', Array, NULL)
+#7 Command line code(1): __('auth')
+#8 {main}
+  thrown in /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Translation/FileLoader.php on line 152
+[31-Mar-2026 15:54:41 UTC] PHP Fatal error:  Uncaught RuntimeException: Translation file [/home/ziziabusalla/public_html/lang/ar.json] contains an invalid JSON structure. in /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Translation/FileLoader.php:152
+Stack trace:
+#0 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Collections/Traits/EnumeratesValues.php(850): Illuminate\Translation\FileLoader->Illuminate\Translation\{closure}(Array, '/home/ziziabusa...', 1)
+#1 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Translation/FileLoader.php(147): Illuminate\Support\Collection->reduce(Object(Closure), Array)
+#2 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Translation/FileLoader.php(64): Illuminate\Translation\FileLoader->loadJsonPaths('ar')
+#3 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Translation/Translator.php(338): Illuminate\Translation\FileLoader->load('ar', '*', '*')
+#4 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Translation/Translator.php(158): Illuminate\Translation\Translator->load('*', '*', 'ar')
+#5 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php(996): Illuminate\Translation\Translator->get('auth', Array, 'ar')
+#6 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php(1028): trans('auth', Array, NULL)
+#7 Command line code(1): __('auth')
+#8 {main}
+  thrown in /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Translation/FileLoader.php on line 152
+[31-Mar-2026 15:55:07 UTC] PHP Fatal error:  Uncaught RuntimeException: Translation file [/home/ziziabusalla/public_html/lang/ar.json] contains an invalid JSON structure. in /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Translation/FileLoader.php:152
+Stack trace:
+#0 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Collections/Traits/EnumeratesValues.php(850): Illuminate\Translation\FileLoader->Illuminate\Translation\{closure}(Array, '/home/ziziabusa...', 1)
+#1 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Translation/FileLoader.php(147): Illuminate\Support\Collection->reduce(Object(Closure), Array)
+#2 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Translation/FileLoader.php(64): Illuminate\Translation\FileLoader->loadJsonPaths('ar')
+#3 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Translation/Translator.php(338): Illuminate\Translation\FileLoader->load('ar', '*', '*')
+#4 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Translation/Translator.php(158): Illuminate\Translation\Translator->load('*', '*', 'ar')
+#5 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php(996): Illuminate\Translation\Translator->get('auth', Array, 'ar')
+#6 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php(1028): trans('auth', Array, NULL)
+#7 Command line code(1): __('auth')
+#8 {main}
+  thrown in /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Translation/FileLoader.php on line 152
+[31-Mar-2026 15:56:53 UTC] PHP Fatal error:  Uncaught RuntimeException: Translation file [/home/ziziabusalla/public_html/lang/ar.json] contains an invalid JSON structure. in /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Translation/FileLoader.php:152
+Stack trace:
+#0 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Collections/Traits/EnumeratesValues.php(850): Illuminate\Translation\FileLoader->Illuminate\Translation\{closure}(Array, '/home/ziziabusa...', 1)
+#1 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Translation/FileLoader.php(147): Illuminate\Support\Collection->reduce(Object(Closure), Array)
+#2 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Translation/FileLoader.php(64): Illuminate\Translation\FileLoader->loadJsonPaths('ar')
+#3 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Translation/Translator.php(338): Illuminate\Translation\FileLoader->load('ar', '*', '*')
+#4 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Translation/Translator.php(158): Illuminate\Translation\Translator->load('*', '*', 'ar')
+#5 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php(996): Illuminate\Translation\Translator->get('auth', Array, 'ar')
+#6 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php(1028): trans('auth', Array, NULL)
+#7 Command line code(1): __('auth')
+#8 {main}
+  thrown in /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Translation/FileLoader.php on line 152
+[31-Mar-2026 15:56:58 UTC] PHP Fatal error:  Uncaught RuntimeException: Translation file [/home/ziziabusalla/public_html/lang/ar.json] contains an invalid JSON structure. in /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Translation/FileLoader.php:152
+Stack trace:
+#0 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Collections/Traits/EnumeratesValues.php(850): Illuminate\Translation\FileLoader->Illuminate\Translation\{closure}(Array, '/home/ziziabusa...', 1)
+#1 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Translation/FileLoader.php(147): Illuminate\Support\Collection->reduce(Object(Closure), Array)
+#2 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Translation/FileLoader.php(64): Illuminate\Translation\FileLoader->loadJsonPaths('ar')
+#3 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Translation/Translator.php(338): Illuminate\Translation\FileLoader->load('ar', '*', '*')
+#4 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Translation/Translator.php(158): Illuminate\Translation\Translator->load('*', '*', 'ar')
+#5 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php(996): Illuminate\Translation\Translator->get('auth', Array, 'ar')
+#6 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php(1028): trans('auth', Array, NULL)
+#7 Command line code(1): __('auth')
+#8 {main}
+  thrown in /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Translation/FileLoader.php on line 152
+[31-Mar-2026 15:57:05 UTC] PHP Fatal error:  Uncaught RuntimeException: Translation file [/home/ziziabusalla/public_html/lang/ar.json] contains an invalid JSON structure. in /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Translation/FileLoader.php:152
+Stack trace:
+#0 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Collections/Traits/EnumeratesValues.php(850): Illuminate\Translation\FileLoader->Illuminate\Translation\{closure}(Array, '/home/ziziabusa...', 1)
+#1 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Translation/FileLoader.php(147): Illuminate\Support\Collection->reduce(Object(Closure), Array)
+#2 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Translation/FileLoader.php(64): Illuminate\Translation\FileLoader->loadJsonPaths('ar')
+#3 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Translation/Translator.php(338): Illuminate\Translation\FileLoader->load('ar', '*', '*')
+#4 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Translation/Translator.php(158): Illuminate\Translation\Translator->load('*', '*', 'ar')
+#5 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php(996): Illuminate\Translation\Translator->get('auth', Array, 'ar')
+#6 /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php(1028): trans('auth', Array, NULL)
+#7 Command line code(1): __('auth')
+#8 {main}
+  thrown in /home/ziziabusalla/public_html/vendor/laravel/framework/src/Illuminate/Translation/FileLoader.php on line 152

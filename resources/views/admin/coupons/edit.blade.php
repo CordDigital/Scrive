@@ -1,0 +1,141 @@
+@extends('admin.layouts.app')
+
+@section('content')
+<div class="container-fluid py-4">
+
+    <div class="d-flex align-items-center gap-3 mb-4">
+        <a href="{{ route('admin.coupons.index') }}" class="btn btn-sm btn-outline-secondary">
+            <i class="mdi mdi-arrow-left"></i>
+        </a>
+        <h4 class="mb-0 fw-bold">Edit Coupon</h4>
+    </div>
+
+    <div class="card border-0 shadow-sm" style="max-width:700px;">
+        <div class="card-body p-4">
+            <form action="{{ route('admin.coupons.update',$coupon->id) }}" method="POST">
+                @csrf
+                @method('PUT')
+
+                <div class="row g-3">
+
+                    <div class="col-md-6">
+                        <label class="form-label fw-semibold">
+                            <i class="mdi mdi-barcode me-1 text-muted"></i>Coupon Code
+                            <span class="text-danger">*</span>
+                        </label>
+
+                        <input type="text"
+                               name="code"
+                               class="form-control text-uppercase"
+                               value="{{ old('code',$coupon->code) }}"
+                               required>
+
+                        @error('code')
+                        <div class="text-danger small mt-1">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+
+                    <div class="col-md-6">
+                        <label class="form-label fw-semibold">
+                            <i class="mdi mdi-tag me-1 text-muted"></i>Discount Type
+                        </label>
+
+                        <select name="type" class="form-select">
+                            <option value="percent"
+                                {{ old('type',$coupon->type)=='percent' ? 'selected' : '' }}>
+                                Percentage %
+                            </option>
+
+                            <option value="fixed"
+                                {{ old('type',$coupon->type)=='fixed' ? 'selected' : '' }}>
+                                Fixed Amount $
+                            </option>
+                        </select>
+                    </div>
+
+
+                    <div class="col-md-4">
+                        <label class="form-label fw-semibold">
+                            <i class="mdi mdi-currency-usd me-1 text-muted"></i>Value
+                        </label>
+
+                        <input type="number"
+                               name="value"
+                               class="form-control"
+                               value="{{ old('value',$coupon->value) }}"
+                               min="0"
+                               step="0.01"
+                               required>
+                    </div>
+
+
+                    <div class="col-md-4">
+                        <label class="form-label fw-semibold">
+                            <i class="mdi mdi-cart me-1 text-muted"></i>Min. Order Amount
+                        </label>
+
+                        <input type="number"
+                               name="min_order"
+                               class="form-control"
+                               value="{{ old('min_order',$coupon->min_order) }}"
+                               min="0"
+                               step="0.01">
+                    </div>
+
+
+                    <div class="col-md-4">
+                        <label class="form-label fw-semibold">
+                            <i class="mdi mdi-counter me-1 text-muted"></i>Usage Limit
+                        </label>
+
+                        <input type="number"
+                               name="max_uses"
+                               class="form-control"
+                               value="{{ old('max_uses',$coupon->max_uses) }}"
+                               min="1">
+                    </div>
+
+
+                    <div class="col-md-6">
+                        <label class="form-label fw-semibold">
+                            <i class="mdi mdi-calendar-clock me-1 text-muted"></i>Expiry Date
+                        </label>
+
+                        <input type="date"
+                               name="expires_at"
+                               class="form-control"
+                               value="{{ old('expires_at', $coupon->expires_at?->format('Y-m-d')) }}">
+                    </div>
+
+
+                    <div class="col-md-6 d-flex align-items-end">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input"
+                                   type="checkbox"
+                                   name="is_active"
+                                   value="1"
+                                   {{ old('is_active',$coupon->is_active) ? 'checked' : '' }}>
+
+                            <label class="form-check-label fw-semibold">
+                                Active
+                            </label>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 mt-2">
+                        <button type="submit"
+                                class="btn text-white px-5 shadow-sm border-0"
+                                style="background:linear-gradient(135deg,#667eea,#764ba2);">
+                            <i class="mdi mdi-content-save me-1"></i>
+                            Update Coupon
+                        </button>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@endsection

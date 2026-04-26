@@ -1,0 +1,77 @@
+.login-popup.open{
+        top: 37px;
+                right: -222px;
+}
+ @media only screen and (min-width: 769px) {
+           .menu-main ul li a::before, .menu-main ul li .link::before{
+               display:none !important;
+           }
+        }
+ .menu-main ul li a::before, .menu-main ul li .link::before{
+               display:none !important;
+           }
+           .blog-card-thumb{
+                    height: auto !important;
+           }
+.menu {
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+}
+
+.menu::-webkit-scrollbar {
+    display: none;
+}
+
+.tab-item {
+    flex: 0 0 auto;
+}           
+.sub-img{
+    left:-16px;
+    right:unset !important;
+}
+.bg-img {
+        right: 0px;
+          left:unset !important;
+}
+.button-main{
+        left:0px;
+    right:unset !important;
+    
+}
+.heading2 {
+    font-size: 28px;}
+.css-ar-3{
+        left: 0.25rem;
+        right:unset !important;
+}
+.new-55{
+        flex-direction: row-reverse !important;
+}    
+.whatsapp-22{
+   position: fixed;
+    bottom: 10px;
+    font-size: 47px;
+    left: 19px;
+        z-index: 6666666666;
+}
+.new-css-55{
+        left: 1.5rem;
+        right:unset !important;
+}
+  .badge-new {
+ 
+    display: none !important;
+}
+.new-phone{
+        direction: ltr;
+}
+.new-ff{
+            padding-left: 3rem;
+}
+.new-size{
+        padding-right: 22px;
+}
+.new-phone{
+        align-items: flex-end !important;
+}
